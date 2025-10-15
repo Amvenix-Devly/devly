@@ -17,12 +17,12 @@ export default function HomePage() {
     }, 4000);
     return () => clearInterval(timer);
   }, [banners.length]);
-  const [mobileOpen, setMobileOpen] = useState(false);
-  const [submenuOpen, setSubmenuOpen] = useState(false);
 
-  /** Hero slider */
+  const [mobileOpen, setMobileOpen] = useState(false);
+
+  /** Navbar Menu */
   const menuItems = [
-    { name: "Home", link: "/home" },
+    { name: "Home", link: "/" },
     {
       name: "Categories",
       link: "#",
@@ -40,7 +40,7 @@ export default function HomePage() {
     { name: "Contact", link: "/contact" },
   ];
 
-  /** Featured deals */
+  /** Featured Deals */
   const deals = [
     { name: "Garlic", price: "$20", image: "/images/products/garlic.png" },
     { name: "Wheat", price: "$15", image: "/images/products/wheat.png" },
@@ -80,6 +80,7 @@ export default function HomePage() {
             />
           </div>
 
+          {/* Desktop Menu */}
           <div className="hidden md:flex space-x-6 items-center">
             {menuItems.map((item, i) => (
               <div key={i} className="relative group">
@@ -111,6 +112,7 @@ export default function HomePage() {
             />
           </div>
 
+          {/* Mobile Menu Button */}
           <div className="md:hidden">
             <button onClick={() => setMobileOpen(!mobileOpen)}>
               <svg
@@ -131,6 +133,7 @@ export default function HomePage() {
           </div>
         </div>
 
+        {/* Mobile Menu */}
         {mobileOpen && (
           <div className="md:hidden bg-white px-4 pt-2 pb-4 space-y-1">
             {menuItems.map((item, i) => (
@@ -198,7 +201,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Stock Business / Supplier Invitation Section */}
+      {/* Supplier Invitation Section */}
       <section className="bg-yellow-50 py-16 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="md:w-1/2">
@@ -293,10 +296,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Partners Carousel */}
+      {/* Partners */}
       <section className="bg-gray-100 py-8">
-        <h2 className="text-2xl md:text-3xl font-bold mb-2 text-centr text-gray-900">Our Partners</h2>
-    <div className="w-24 h-1 bg-green-600 mx-auto mb-8 rounded-full"></div>
+        <h2 className="text-2xl md:text-3xl font-bold mb-2 text-center text-gray-900">Our Partners</h2>
+        <div className="w-24 h-1 bg-green-600 mx-auto mb-8 rounded-full"></div>
         <div className="max-w-7xl mx-auto px-4 overflow-x-auto flex space-x-8">
           {partners.map((p, i) => (
             <div key={i} className="h-16 w-32 relative flex-shrink-0">
@@ -317,59 +320,34 @@ export default function HomePage() {
           <div>
             <h3 className="font-bold mb-4">About Amvenix</h3>
             <p className="text-gray-500 text-sm">
-              Amvenix is a global online marketplace connecting farmers and
-              businesses with customers worldwide.
+              Amvenix is a global online marketplace connecting farmers and businesses with customers worldwide.
             </p>
           </div>
           <div>
             <h3 className="font-bold mb-4">Customer Service</h3>
             <ul className="text-gray-500 text-sm space-y-1">
-              <li>
-                <a href="#">Help Center</a>
-              </li>
-              <li>
-                <a href="#">Returns</a>
-              </li>
-              <li>
-                <a href="#">Shipping</a>
-              </li>
-              <li>
-                <a href="#">Contact Us</a>
-              </li>
+              <li><a href="#">Help Center</a></li>
+              <li><a href="#">Returns</a></li>
+              <li><a href="#">Shipping</a></li>
+              <li><a href="#">Contact Us</a></li>
             </ul>
           </div>
           <div>
             <h3 className="font-bold mb-4">Quick Links</h3>
             <ul className="text-gray-500 text-sm space-y-1">
-              <li>
-                <a href="#">Categories</a>
-              </li>
-              <li>
-                <a href="#">Deals</a>
-              </li>
-              <li>
-                <a href="#">About Us</a>
-              </li>
-              <li>
-                <a href="#">Blog</a>
-              </li>
+              <li><a href="/">Home</a></li>
+              <li><a href="#">Categories</a></li>
+              <li><a href="#">Deals</a></li>
+              <li><a href="#">About Us</a></li>
             </ul>
           </div>
           <div>
             <h3 className="font-bold mb-4">Follow Us</h3>
             <ul className="text-gray-500 text-sm space-y-1">
-              <li>
-                <a href="#">Facebook</a>
-              </li>
-              <li>
-                <a href="#">Twitter</a>
-              </li>
-              <li>
-                <a href="#">Instagram</a>
-              </li>
-              <li>
-                <a href="#">LinkedIn</a>
-              </li>
+              <li><a href="#">Facebook</a></li>
+              <li><a href="#">Twitter</a></li>
+              <li><a href="#">Instagram</a></li>
+              <li><a href="#">LinkedIn</a></li>
             </ul>
           </div>
         </div>

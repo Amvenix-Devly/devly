@@ -7,7 +7,7 @@ export default function AboutPage() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const menuItems = [
-    { name: "Home", link: "/home" },
+    { name: "Home", link: "/" },
     {
       name: "Categories",
       link: "#",
@@ -39,6 +39,7 @@ export default function AboutPage() {
             />
           </div>
 
+          {/* Desktop Menu */}
           <div className="hidden md:flex space-x-6 items-center">
             {menuItems.map((item, i) => (
               <div key={i} className="relative group">
@@ -70,6 +71,7 @@ export default function AboutPage() {
             />
           </div>
 
+          {/* Mobile Menu Button */}
           <div className="md:hidden">
             <button onClick={() => setMobileOpen(!mobileOpen)}>
               <svg
@@ -90,6 +92,7 @@ export default function AboutPage() {
           </div>
         </div>
 
+        {/* Mobile Menu */}
         {mobileOpen && (
           <div className="md:hidden bg-white px-4 pt-2 pb-4 space-y-1">
             {menuItems.map((item, i) => (
@@ -140,14 +143,12 @@ export default function AboutPage() {
       {/* Company Intro */}
       <section className="max-w-7xl mx-auto py-16 px-4 grid md:grid-cols-2 gap-8 items-center">
         <div>
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">
-            Who We Are
-          </h2>
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">Who We Are</h2>
           <p className="text-gray-700 mb-4">
-            <strong>Amvenix</strong> is an innovative B2B e-commerce platform inspired by global leaders like Alibaba — connecting farmers, suppliers, and businesses to buyers around the world.
+            <strong>Amvenix</strong> is an innovative B2B e-commerce platform connecting farmers, suppliers, and businesses to buyers around the world.
           </p>
           <p className="text-gray-700 mb-4">
-            We started with a vision to make agricultural and industrial trade easier, transparent, and more accessible. Our platform bridges the gap between local producers and global markets through technology, logistics, and trust.
+            We started with a vision to make trade easier, transparent, and more accessible, bridging the gap between local producers and global markets.
           </p>
         </div>
         <div className="relative h-80">
@@ -166,7 +167,7 @@ export default function AboutPage() {
           <div className="p-6 bg-blue-50 rounded-xl shadow-sm hover:shadow-md transition">
             <h3 className="text-2xl font-bold mb-4 text-blue-900">Our Mission</h3>
             <p className="text-gray-700">
-              To empower suppliers, farmers, and manufacturers with a trusted online marketplace that ensures fair trade, sustainable growth, and access to a global audience.
+              To empower suppliers, farmers, and manufacturers with a trusted online marketplace ensuring fair trade, sustainable growth, and global access.
             </p>
           </div>
           <div className="p-6 bg-green-50 rounded-xl shadow-sm hover:shadow-md transition">
@@ -184,11 +185,11 @@ export default function AboutPage() {
         <div className="grid md:grid-cols-3 gap-8">
           {[
             { title: "Global Marketplace", desc: "Reach buyers and suppliers across multiple continents with one trusted platform.", icon: "🌍" },
-            { title: "Secure Transactions", desc: "We ensure safe payments, verified suppliers, and full transaction protection.", icon: "🔒" },
+            { title: "Secure Transactions", desc: "Safe payments, verified suppliers, and full transaction protection.", icon: "🔒" },
             { title: "Logistics Support", desc: "Integrated transport and delivery solutions for smooth order fulfillment.", icon: "🚚" },
-            { title: "Marketing & Growth", desc: "We help you promote your products with AI-powered marketing tools.", icon: "📈" },
-            { title: "Sustainability Focus", desc: "We promote eco-friendly trade practices and responsible sourcing.", icon: "🌱" },
-            { title: "Dedicated Support", desc: "24/7 customer care and business consulting for your continuous growth.", icon: "🤝" },
+            { title: "Marketing & Growth", desc: "Promote your products with AI-powered marketing tools.", icon: "📈" },
+            { title: "Sustainability Focus", desc: "Eco-friendly trade practices and responsible sourcing.", icon: "🌱" },
+            { title: "Dedicated Support", desc: "24/7 customer care and business consulting for continuous growth.", icon: "🤝" },
           ].map((item, idx) => (
             <div key={idx} className="bg-white p-6 rounded-xl shadow hover:shadow-lg transition flex flex-col items-center text-center">
               <div className="text-5xl mb-4">{item.icon}</div>
