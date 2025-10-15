@@ -44,7 +44,7 @@ export default function HomePage() {
 
   /** Featured deals */
   const deals = [
-    { name: "Maize", price: "$20", image: "/images/products/garlic.png" },
+    { name: "Garlic", price: "$20", image: "/images/products/garlic.png" },
     { name: "Wheat", price: "$15", image: "/images/products/wheat.png" },
     { name: "Onion", price: "$10", image: "/images/products/onion.png" },
     { name: "Jute", price: "$25", image: "/images/products/jute.png" },
