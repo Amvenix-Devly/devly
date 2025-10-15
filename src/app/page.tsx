@@ -44,28 +44,28 @@ export default function HomePage() {
 
   /** Featured deals */
   const deals = [
-    { name: "Garlic", price: "$20", image: "/images\products\garlic.png" },
-    { name: "Wheat", price: "$15", image: "/images\products\wheat.png" },
-    { name: "Onion", price: "$10", image: "/images\products\onion.png" },
-    { name: "Jute", price: "$25", image: "images\products\jute.png" },
-    { name: "Rice", price: "$18", image: "/images\products\rice.png" },
-    { name: "Tea", price: "$12", image: "/images\products\tea.png" },
+    { name: "Garlic", price: "$20", image: "/images/products/garlic.png" },
+    { name: "Wheat", price: "$15", image: "/images/products/wheat.png" },
+    { name: "Onion", price: "$10", image: "/images/products/onion.png" },
+    { name: "Jute", price: "$25", image: "/images/products/jute.png" },
+    { name: "Rice", price: "$18", image: "/images/products/rice.png" },
+    { name: "Tea", price: "$12", image: "/images/products/tea.png" },
   ];
 
   /** Categories */
   const categories = [
-    { name: "Agriculture", image: "/images\categories\agriculture.jpg" },
+    { name: "Agriculture", image: "/images/categories/agriculture.jpg" },
     { name: "Electronics", image: "/images/categories/electronics.jpg" },
-    { name: "Clothing", image: "/images\categories\clothing.jpg" },
+    { name: "Clothing", image: "/images/categories/clothing.jpg" },
     { name: "Home & Kitchen", image: "/images/categories/home.jpg" },
     { name: "Machinery", image: "/images/categories/machinery.jpg" },
   ];
 
   /** Partners */
   const partners = [
-    "/images/partners/gco.png",
     "/images/partners/agritech.jpg",
-        "/images/partners/amvenix-logo.png",
+    "/images/partners/gco.png",
+    "/images/partners/amvenix-logo.png",
   ];
 
   return (
@@ -297,6 +297,8 @@ export default function HomePage() {
 
       {/* Partners Carousel */}
       <section className="bg-gray-100 py-8">
+        <h2 className="text-2xl md:text-3xl font-bold mb-2 text-center text-gray-900">Our Partners</h2>
+    <div className="w-24 h-1 bg-green-600 mx-auto mb-8 rounded-full"></div>
         <div className="max-w-7xl mx-auto px-4 overflow-x-auto flex space-x-8">
           {partners.map((p, i) => (
             <div key={i} className="h-16 w-32 relative flex-shrink-0">
