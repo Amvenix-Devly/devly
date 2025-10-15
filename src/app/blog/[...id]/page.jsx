@@ -4,7 +4,7 @@
 import { useParams } from "next/navigation";
 
 const SingleBlog = () => {
-  const { id } = useParams();
+  const { id } = useParams();-
 
   return (
     <div>
