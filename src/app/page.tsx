@@ -27,16 +27,16 @@ const features = [
 ];
 
 const categories = [
-  { name: "Tea", image: "/images/Popular Categories/tea.png" },
-  { name: "Wheat", image: "/images/Popular Categories/wheat.png" },
-  { name: "Garlic", image: "/images/Popular Categories/garlic.png" },
-  { name: "Onion", image: "/images/Popular Categories/onion.png" },
+  { name: "Tea", image: "/images/categories/tea.png" },
+  { name: "Wheat", image: "/images/categories/wheat.png" },
+  { name: "Garlic", image: "/images/categories/garlic.png" },
+  { name: "Onion", image: "/images/categories/onion.png" },
 ];
 
 const partners = [
   { name: "Global Community Organization", logo: "/images/partners/gco.png" },
   { name: "AgriTech BD", logo: "/images/partners/agritech-bd.jpg" },
-  { name: "Green Logistics", logo: "/images/partners/Green Logistics.jpg" },
+  { name: "Green Logistics", logo: "/images/partners/green-logistics.jpg" },
 ];
 
 export default function HomePage() {
@@ -108,7 +108,7 @@ export default function HomePage() {
             </div>
           </div>
           <div className="relative w-full h-80 rounded-2xl overflow-hidden shadow">
-            <Image src="/images/Agricultural Abundance_ Fields and Livestock.png" alt="Amvenix marketplace" fill style={{ objectFit: "cover" }} />
+            <Image src="/images/agriculture-field.png" alt="Amvenix marketplace" fill style={{ objectFit: "cover" }} />
           </div>
         </section>
 
