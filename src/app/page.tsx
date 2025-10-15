@@ -1,191 +1,382 @@
-// src/app/page.tsx
-"use client"; // Required for useState
+"use client";
 
-import { useState } from "react";
 import Image from "next/image";
-import Head from "next/head";
-
-// Dummy Data
-const menuItems = [
-  { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
-  { label: "Blog", href: "/blog" },
-  { label: "Contact", href: "/contact" },
-];
-
-const stats = [
-  { label: "Registered Farmers", value: 4300 },
-  { label: "Total Sellers", value: 1250 },
-  { label: "Products Listed", value: 18400 },
-  { label: "Countries Reached", value: 6 },
-];
-
-const features = [
-  { title: "Fair Trade", description: "Direct connection between farmers and buyers ensuring fair prices.", icon: "/images/icons/fair-trade.jpg" },
-  { title: "Global Reach", description: "Access to national and international markets for all sellers.", icon: "/images/icons/global-reach.jpg" },
-  { title: "Sustainable Practices", description: "Promoting environmentally friendly agriculture.", icon: "/images/icons/sustainable-practices.jpg" },
-];
-
-const categories = [
-  { name: "Tea", image: "/images/categories/tea.png" },
-  { name: "Wheat", image: "/images/categories/wheat.png" },
-  { name: "Garlic", image: "/images/categories/garlic.png" },
-  { name: "Onion", image: "/images/categories/onion.png" },
-];
-
-const partners = [
-  { name: "Global Community Organization", logo: "/images/partners/gco.png" },
-  { name: "AgriTech BD", logo: "/images/partners/agritech-bd.jpg" },
-  { name: "Green Logistics", logo: "/images/partners/green-logistics.jpg" },
-];
+import { useState, useEffect } from "react";
 
 export default function HomePage() {
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [submenuOpen, setSubmenuOpen] = useState(false);
+
+  /** Hero slider */
+  const banners = [
+    "/images/banner/banner1.jpg",
+    "/images/banner/banner2.jpg",
+    "/images/banner/banner3.jpg",
+  ];
+  const [current, setCurrent] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % banners.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, []);
+
+  /** Navbar items */
+  const menuItems = [
+    { name: "Home", link: "#" },
+    {
+      name: "Categories",
+      link: "#",
+      submenu: [
+        { name: "Agriculture", link: "#" },
+        { name: "Electronics", link: "#" },
+        { name: "Clothing", link: "#" },
+        { name: "Home & Kitchen", link: "#" },
+        { name: "Machinery", link: "#" },
+      ],
+    },
+    { name: "Deals", link: "#" },
+    { name: "Suppliers", link: "#" },
+    { name: "About Us", link: "#" },
+    { name: "Contact", link: "#" },
+  ];
+
+  /** Featured deals */
+  const deals = [
+    { name: "Maize", price: "$20", image: "/images/products/garlic.png" },
+    { name: "Wheat", price: "$15", image: "/images/products/wheat.png" },
+    { name: "Onion", price: "$10", image: "/images/products/onion.png" },
+    { name: "Jute", price: "$25", image: "/images/products/jute.png" },
+    { name: "Rice", price: "$18", image: "/images/products/rice.png" },
+    { name: "Potato", price: "$12", image: "/images/products/tea.png" },
+  ];
+
+  /** Categories */
+  const categories = [
+    { name: "Agriculture", image: "/images/categories/agriculture.jpg" },
+    { name: "Electronics", image: "/images/categories/electronics.jpg" },
+    { name: "Clothing", image: "/images/categories/clothing.jpg" },
+    { name: "Home & Kitchen", image: "/images/categories/home.jpg" },
+    { name: "Machinery", image: "/images/categories/machinery.jpg" },
+  ];
+
+  /** Partners */
+  const partners = [
+    "/images/partners/gco.png",
+    "/images/partners/agritech.jpg",
+        "/images/partners/amvenix-logo.png",
+  ];
 
   return (
-    <>
-      {/* Page Metadata */}
-      <Head>
-        <title>Amvenix — Global Agricultural Marketplace</title>
-        <meta
-          name="description"
-          content="Amvenix connects farmers, sellers, and buyers globally, ensuring fair trade, transparency, and sustainability."
-        />
-      </Head>
-
-      <main className="max-w-7xl mx-auto px-6 py-6">
-
-        {/* Navbar */}
-        <nav className="flex justify-between items-center py-4 border-b">
-          <div className="flex items-center gap-2">
-            <Image src="/images/partners/amvenix-logo.png" alt="Amvenix" width={40} height={40} />
-            <span className="text-xl font-bold text-green-700">Amvenix</span>
+    <div className="bg-gray-50 font-sans">
+      {/* Navbar */}
+      <nav className="bg-white shadow sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
+          <div className="flex items-center">
+            <Image
+              src="/images/logo/amvenix-logo.png"
+              alt="Amvenix"
+              width={140}
+              height={40}
+            />
           </div>
 
-          {/* Desktop Menu */}
-          <div className="hidden md:flex items-center gap-6">
-            {menuItems.map((item) => (
-              <a key={item.label} href={item.href} className="text-gray-700 hover:text-green-700">{item.label}</a>
+          <div className="hidden md:flex space-x-6 items-center">
+            {menuItems.map((item, i) => (
+              <div key={i} className="relative group">
+                <a
+                  href={item.link}
+                  className="text-gray-700 hover:text-blue-600 font-medium"
+                >
+                  {item.name}
+                </a>
+                {item.submenu && (
+                  <div className="absolute left-0 top-full bg-white shadow-md rounded-md mt-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                    {item.submenu.map((sub, idx) => (
+                      <a
+                        key={idx}
+                        href={sub.link}
+                        className="block px-4 py-2 hover:bg-gray-100"
+                      >
+                        {sub.name}
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
             ))}
-            <a href="/signup" className="px-4 py-2 bg-green-700 text-white rounded-xl shadow hover:bg-green-800">Join as Seller</a>
+            <input
+              type="text"
+              placeholder="Search products"
+              className="border rounded-md px-3 py-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
           </div>
 
-          {/* Mobile Menu Button */}
           <div className="md:hidden">
-            <button onClick={() => setMenuOpen(!menuOpen)}>
-              {menuOpen ? <span className="text-2xl">&#x2715;</span> : <span className="text-2xl">&#9776;</span>}
+            <button onClick={() => setMobileOpen(!mobileOpen)}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
             </button>
           </div>
-        </nav>
+        </div>
 
-        {/* Mobile Menu */}
-        {menuOpen && (
-          <div className="flex flex-col gap-4 mt-4 md:hidden text-center">
-            {menuItems.map((item) => (
-              <a key={item.label} href={item.href} className="text-gray-700 hover:text-green-700">{item.label}</a>
+        {mobileOpen && (
+          <div className="md:hidden bg-white px-4 pt-2 pb-4 space-y-1">
+            {menuItems.map((item, i) => (
+              <div key={i}>
+                <a
+                  href={item.link}
+                  className="block text-gray-700 hover:text-blue-600 font-medium"
+                >
+                  {item.name}
+                </a>
+                {item.submenu && (
+                  <div className="pl-4">
+                    {item.submenu.map((sub, idx) => (
+                      <a
+                        key={idx}
+                        href={sub.link}
+                        className="block text-gray-600 py-1"
+                      >
+                        {sub.name}
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
             ))}
-            <a href="/signup" className="px-4 py-2 bg-green-700 text-white rounded-xl shadow hover:bg-green-800">Join as Seller</a>
           </div>
         )}
+      </nav>
 
-        {/* Hero Section */}
-        <section className="grid gap-10 lg:grid-cols-2 items-center my-12">
-          <div>
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900">
-              Welcome to <span className="text-green-700">Amvenix</span>
-            </h1>
-            <p className="mt-4 text-gray-700 text-lg leading-relaxed">
-              Amvenix is a next-generation agricultural marketplace connecting farmers, sellers,
-              and buyers directly to national and global markets—ensuring fair trade, transparency, and sustainability.
+      {/* Hero Slider */}
+      <section className="relative w-full h-[450px] md:h-[550px] overflow-hidden">
+        {banners.map((banner, idx) => (
+          <div
+            key={idx}
+            className={`absolute inset-0 transition-opacity duration-1000 ${
+              idx === current ? "opacity-100 z-10" : "opacity-0 z-0"
+            }`}
+          >
+            <Image
+              src={banner}
+              alt={`Banner ${idx}`}
+              fill
+              style={{ objectFit: "cover" }}
+            />
+          </div>
+        ))}
+
+        {/* Dots */}
+        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
+          {banners.map((_, idx) => (
+            <button
+              key={idx}
+              className={`h-2 w-2 rounded-full ${
+                idx === current ? "bg-white" : "bg-gray-400"
+              }`}
+              onClick={() => setCurrent(idx)}
+            />
+          ))}
+        </div>
+
+        <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
+          <h1 className="text-white text-3xl md:text-5xl font-bold">
+            Welcome to Amvenix
+          </h1>
+        </div>
+      </section>
+
+      {/* Stock Business / Supplier Invitation Section */}
+      <section className="bg-yellow-50 py-16 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-8">
+          <div className="md:w-1/2">
+            <h2 className="text-3xl md:text-4xl font-bold text-yellow-900 mb-4">
+              Start Your Stock Business with Amvenix
+            </h2>
+            <p className="text-yellow-800 mb-6">
+              Join thousands of suppliers and wholesalers expanding their business globally.
+              We offer easy onboarding, global reach, secure transactions, marketing support,
+              and amazing growth opportunities!
             </p>
-            <div className="mt-6 flex gap-4 flex-wrap">
-              <a href="/signup" className="px-6 py-3 bg-green-700 text-white font-medium rounded-xl shadow hover:bg-green-800">
-                Join as Seller
+            <div className="flex gap-4">
+              <a
+                href="#"
+                className="bg-yellow-600 text-white px-6 py-3 rounded shadow hover:bg-yellow-700 transition"
+              >
+                Join as Supplier
               </a>
-              <a href="/about" className="px-6 py-3 border border-gray-300 rounded-xl hover:bg-gray-50">
+              <a
+                href="#"
+                className="bg-white text-yellow-600 border border-yellow-600 px-6 py-3 rounded shadow hover:bg-yellow-100 transition"
+              >
                 Learn More
               </a>
             </div>
           </div>
-          <div className="relative w-full h-80 rounded-2xl overflow-hidden shadow">
-            <Image src="/images/agriculture-field.png" alt="Amvenix marketplace" fill style={{ objectFit: "cover" }} />
+          <div className="md:w-1/2 relative h-64 md:h-80">
+            <Image
+              src="/images/supplier/supplier-banner.jpg"
+              alt="Stock Business"
+              fill
+              style={{ objectFit: "contain" }}
+            />
           </div>
-        </section>
+        </div>
 
-        {/* Features Section */}
-        <section className="mb-16">
-          <h2 className="text-3xl font-semibold text-gray-900 text-center">Why Choose Amvenix</h2>
-          <div className="mt-8 grid md:grid-cols-3 gap-6">
-            {features.map((f) => (
-              <div key={f.title} className="bg-white p-6 rounded-2xl shadow hover:shadow-md transition text-center">
-                <div className="relative w-16 h-16 mx-auto mb-4">
-                  <Image src={f.icon} alt={f.title} fill style={{ objectFit: "contain" }} />
-                </div>
-                <h3 className="text-xl font-semibold text-green-700">{f.title}</h3>
-                <p className="mt-2 text-gray-600">{f.description}</p>
+        <div className="absolute -top-10 -left-10 w-40 h-40 bg-yellow-200 rounded-full opacity-30"></div>
+        <div className="absolute -bottom-10 -right-10 w-60 h-60 bg-yellow-300 rounded-full opacity-20"></div>
+      </section>
+
+      {/* Featured Deals */}
+      <section className="max-w-7xl mx-auto py-12 px-4">
+        <h2 className="text-2xl font-bold mb-6">Featured Deals</h2>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          {deals.map((deal) => (
+            <div
+              key={deal.name}
+              className="relative border rounded-lg overflow-hidden shadow hover:shadow-lg transition"
+            >
+              <div className="relative h-40">
+                <Image
+                  src={deal.image}
+                  alt={deal.name}
+                  fill
+                  style={{ objectFit: "cover" }}
+                />
               </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Categories Section */}
-        <section className="mb-16">
-          <h2 className="text-3xl font-semibold text-gray-900 text-center">Popular Categories</h2>
-          <div className="mt-8 grid sm:grid-cols-2 md:grid-cols-4 gap-6">
-            {categories.map((cat) => (
-              <div key={cat.name} className="relative w-full h-48 rounded-2xl overflow-hidden shadow hover:shadow-md transition">
-                <Image src={cat.image} alt={cat.name} fill style={{ objectFit: "cover" }} />
-                <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-40 p-2 text-white text-center font-semibold rounded-b-2xl">
-                  {cat.name}
-                </div>
+              <div className="absolute inset-0 bg-black/0 hover:bg-black/30 flex items-center justify-center opacity-0 hover:opacity-100 transition">
+                <button className="bg-blue-600 text-white px-4 py-2 rounded">
+                  Add to Cart
+                </button>
               </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Statistics Section */}
-        <section className="mb-16 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-          {stats.map((s) => (
-            <div key={s.label} className="bg-green-50 p-6 rounded-xl shadow-sm border border-green-100">
-              <div className="text-3xl font-bold text-green-800">{s.value.toLocaleString()}</div>
-              <div className="mt-2 text-gray-700">{s.label}</div>
+              <div className="p-3">
+                <h3 className="font-semibold">{deal.name}</h3>
+                <p className="text-red-600 font-bold">{deal.price}</p>
+              </div>
             </div>
           ))}
-        </section>
+        </div>
+      </section>
 
-        {/* Partners Section */}
-        <section className="mb-16">
-          <h2 className="text-3xl font-semibold text-gray-900 text-center">Our Partners</h2>
-          <div className="mt-8 flex flex-wrap justify-center gap-6">
-            {partners.map((p) => (
-              <div key={p.name} className="flex items-center gap-3 bg-white rounded-lg p-3 shadow-sm">
-                <div className="relative w-24 h-12">
-                  <Image src={p.logo} alt={p.name} fill style={{ objectFit: "contain" }} />
-                </div>
-                <p className="text-sm text-gray-600">{p.name}</p>
+      {/* Categories */}
+      <section className="max-w-7xl mx-auto py-12 px-4">
+        <h2 className="text-2xl font-bold mb-6">Shop by Category</h2>
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+          {categories.map((cat) => (
+            <div
+              key={cat.name}
+              className="relative h-40 rounded-lg overflow-hidden shadow hover:scale-105 transition"
+            >
+              <Image
+                src={cat.image}
+                alt={cat.name}
+                fill
+                style={{ objectFit: "cover" }}
+              />
+              <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
+                <span className="text-white font-semibold">{cat.name}</span>
               </div>
-            ))}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Partners Carousel */}
+      <section className="bg-gray-100 py-8">
+        <div className="max-w-7xl mx-auto px-4 overflow-x-auto flex space-x-8">
+          {partners.map((p, i) => (
+            <div key={i} className="h-16 w-32 relative flex-shrink-0">
+              <Image
+                src={p}
+                alt={`Partner ${i + 1}`}
+                fill
+                style={{ objectFit: "contain" }}
+              />
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-white border-t py-10">
+        <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div>
+            <h3 className="font-bold mb-4">About Amvenix</h3>
+            <p className="text-gray-500 text-sm">
+              Amvenix is a global online marketplace connecting farmers and
+              businesses with customers worldwide.
+            </p>
           </div>
-        </section>
-
-        {/* CTA Section */}
-        <section className="mt-20 bg-green-50 p-8 rounded-2xl text-center">
-          <h3 className="text-2xl font-semibold text-green-800">Start Selling on Amvenix</h3>
-          <p className="mt-2 text-gray-700">Join thousands of farmers and sellers reaching buyers worldwide.</p>
-          <a
-            href="/signup"
-            className="mt-4 inline-block px-6 py-3 bg-green-700 text-white rounded-xl shadow hover:bg-green-800"
-          >
-            Get Started
-          </a>
-        </section>
-
-        {/* Footer */}
-        <footer className="mt-16 text-gray-500 text-sm text-center border-t pt-6">
-          © {new Date().getFullYear()} Amvenix — All Rights Reserved.
-        </footer>
-
-      </main>
-    </>
+          <div>
+            <h3 className="font-bold mb-4">Customer Service</h3>
+            <ul className="text-gray-500 text-sm space-y-1">
+              <li>
+                <a href="#">Help Center</a>
+              </li>
+              <li>
+                <a href="#">Returns</a>
+              </li>
+              <li>
+                <a href="#">Shipping</a>
+              </li>
+              <li>
+                <a href="#">Contact Us</a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="font-bold mb-4">Quick Links</h3>
+            <ul className="text-gray-500 text-sm space-y-1">
+              <li>
+                <a href="#">Categories</a>
+              </li>
+              <li>
+                <a href="#">Deals</a>
+              </li>
+              <li>
+                <a href="#">About Us</a>
+              </li>
+              <li>
+                <a href="#">Blog</a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="font-bold mb-4">Follow Us</h3>
+            <ul className="text-gray-500 text-sm space-y-1">
+              <li>
+                <a href="#">Facebook</a>
+              </li>
+              <li>
+                <a href="#">Twitter</a>
+              </li>
+              <li>
+                <a href="#">Instagram</a>
+              </li>
+              <li>
+                <a href="#">LinkedIn</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div className="text-center mt-8 text-gray-400 text-sm">
+          &copy; {new Date().getFullYear()} Amvenix. All rights reserved.
+        </div>
+      </footer>
+    </div>
   );
 }
