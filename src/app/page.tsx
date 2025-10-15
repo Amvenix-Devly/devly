@@ -58,7 +58,7 @@ export default function HomePage() {
         {/* Navbar */}
         <nav className="flex justify-between items-center py-4 border-b">
           <div className="flex items-center gap-2">
-            <Image src="/Green Logistics-1.jpg" alt="Amvenix" width={40} height={40} />
+            <Image src="/images/partners/amvenix-logo.png" alt="Amvenix" width={40} height={40} />
             <span className="text-xl font-bold text-green-700">Amvenix</span>
           </div>
 
