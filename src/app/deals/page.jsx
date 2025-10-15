@@ -1,33 +1,41 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
-export default function HomePage() {
-  const banners = [
-    "/images/banner/banner1.jpg",
-    "/images/banner/banner2.jpg",
-    "/images/banner/banner3.jpg"
-  ];
-  const [current, setCurrent] = useState(0);
+const deals = [
+  { name: "Garlic", price: "$20", image: "/images/products/garlic.png" },
+  { name: "Wheat", price: "$15", image: "/images/products/wheat.png" },
+  { name: "Onion", price: "$10", image: "/images/products/onion.png" },
+  { name: "Jute", price: "$25", image: "/images/products/jute.png" },
+  { name: "Rice", price: "$18", image: "/images/products/rice.png" },
+  { name: "Tea", price: "$12", image: "/images/products/tea.png" },
+];
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % banners.length);
-    }, 4000);
-    return () => clearInterval(timer);
-  }, [banners.length]);
+const categories = [
+  { name: "Agriculture", image: "/images/categories/agriculture.jpg" },
+  { name: "Electronics", image: "/images/categories/electronics.jpg" },
+  { name: "Clothing", image: "/images/categories/clothing.jpg" },
+  { name: "Home & Kitchen", image: "/images/categories/home.jpg" },
+  { name: "Machinery", image: "/images/categories/machinery.jpg" },
+];
+
+const partners = [
+  "/images/partners/gco.png",
+  "/images/partners/amvenix-logo.png",
+  "/images/partners/agritech.jpg",
+];
+
+export default function DealsPage() {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [submenuOpen, setSubmenuOpen] = useState(false);
 
-  /** Hero slider */
   const menuItems = [
     { name: "Home", link: "/home" },
     {
       name: "Categories",
       link: "#",
       submenu: [
-        { name: "Agriculture", link: "/agriculture" },
+          { name: "Agriculture", link: "/agriculture" },
         { name: "Electronics", link: "/electronics" },
         { name: "Clothing", link: "/clothing" },
         { name: "Home & Kitchen", link: "/kitchen" },
@@ -35,39 +43,13 @@ export default function HomePage() {
       ],
     },
     { name: "Deals", link: "/deals" },
-    { name: "Suppliers", link: "/suppliers" },
+    { name: "Suppliers", link: "/Suppliers" },
     { name: "About Us", link: "/about" },
     { name: "Contact", link: "/contact" },
   ];
 
-  /** Featured deals */
-  const deals = [
-    { name: "Garlic", price: "$20", image: "/images/products/garlic.png" },
-    { name: "Wheat", price: "$15", image: "/images/products/wheat.png" },
-    { name: "Onion", price: "$10", image: "/images/products/onion.png" },
-    { name: "Jute", price: "$25", image: "/images/products/jute.png" },
-    { name: "Rice", price: "$18", image: "/images/products/rice.png" },
-    { name: "Tea", price: "$12", image: "/images/products/tea.png" },
-  ];
-
-  /** Categories */
-  const categories = [
-    { name: "Agriculture", image: "/images/categories/agriculture.jpg" },
-    { name: "Electronics", image: "/images/categories/electronics.jpg" },
-    { name: "Clothing", image: "/images/categories/clothing.jpg" },
-    { name: "Home & Kitchen", image: "/images/categories/home.jpg" },
-    { name: "Machinery", image: "/images/categories/machinery.jpg" },
-  ];
-
-  /** Partners */
-  const partners = [
-    "/images/partners/agritech.jpg",
-    "/images/partners/gco.png",
-    "/images/partners/amvenix-logo.png",
-  ];
-
   return (
-    <div className="bg-gray-50 font-sans">
+    <div className="bg-gray-50 font-sans min-h-screen">
       {/* Navbar */}
       <nav className="bg-white shadow sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
@@ -85,7 +67,11 @@ export default function HomePage() {
               <div key={i} className="relative group">
                 <a
                   href={item.link}
-                  className="text-gray-700 hover:text-blue-600 font-medium"
+                  className={`font-medium ${
+                    item.link === "/deals"
+                      ? "text-blue-600"
+                      : "text-gray-700 hover:text-blue-600"
+                  }`}
                 >
                   {item.name}
                 </a>
@@ -137,7 +123,11 @@ export default function HomePage() {
               <div key={i}>
                 <a
                   href={item.link}
-                  className="block text-gray-700 hover:text-blue-600 font-medium"
+                  className={`block font-medium ${
+                    item.link === "/deals"
+                      ? "text-blue-600"
+                      : "text-gray-700 hover:text-blue-600"
+                  }`}
                 >
                   {item.name}
                 </a>
@@ -160,88 +150,29 @@ export default function HomePage() {
         )}
       </nav>
 
-      {/* Hero Slider */}
-      <section className="relative w-full h-[450px] md:h-[550px] overflow-hidden">
-        {banners.map((banner, idx) => (
-          <div
-            key={idx}
-            className={`absolute inset-0 transition-opacity duration-1000 ${
-              idx === current ? "opacity-100 z-10" : "opacity-0 z-0"
-            }`}
-          >
-            <Image
-              src={banner}
-              alt={`Banner ${idx}`}
-              fill
-              style={{ objectFit: "cover" }}
-            />
-          </div>
-        ))}
-
-        {/* Dots */}
-        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
-          {banners.map((_, idx) => (
-            <button
-              key={idx}
-              className={`h-2 w-2 rounded-full ${
-                idx === current ? "bg-white" : "bg-gray-400"
-              }`}
-              onClick={() => setCurrent(idx)}
-            />
-          ))}
-        </div>
-
-        <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
-          <h1 className="text-white text-3xl md:text-5xl font-bold">
-            Welcome to Amvenix
+      {/* Hero Section */}
+      <section className="relative w-full h-[400px] md:h-[500px]">
+        <Image
+          src="/images/banner/deals-hero.jpg"
+          alt="Deals"
+          fill
+          style={{ objectFit: "cover" }}
+        />
+        <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center">
+          <h1 className="text-white text-4xl md:text-6xl font-bold mb-4">
+            Amazing Deals on Amvenix
           </h1>
+          <p className="text-white text-lg md:text-xl max-w-2xl">
+            Browse and shop top deals from trusted suppliers worldwide.
+          </p>
         </div>
-      </section>
-
-      {/* Stock Business / Supplier Invitation Section */}
-      <section className="bg-yellow-50 py-16 relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-8">
-          <div className="md:w-1/2">
-            <h2 className="text-3xl md:text-4xl font-bold text-yellow-900 mb-4">
-              Start Your Stock Business with Amvenix
-            </h2>
-            <p className="text-yellow-800 mb-6">
-              Join thousands of suppliers and wholesalers expanding their business globally.
-              We offer easy onboarding, global reach, secure transactions, marketing support,
-              and amazing growth opportunities!
-            </p>
-            <div className="flex gap-4">
-              <a
-                href="#"
-                className="bg-yellow-600 text-white px-6 py-3 rounded shadow hover:bg-yellow-700 transition"
-              >
-                Join as Supplier
-              </a>
-              <a
-                href="#"
-                className="bg-white text-yellow-600 border border-yellow-600 px-6 py-3 rounded shadow hover:bg-yellow-100 transition"
-              >
-                Learn More
-              </a>
-            </div>
-          </div>
-          <div className="md:w-1/2 relative h-64 md:h-80">
-            <Image
-              src="/images/supplier/supplier-banner.jpg"
-              alt="Stock Business"
-              fill
-              style={{ objectFit: "contain" }}
-            />
-          </div>
-        </div>
-
-        <div className="absolute -top-10 -left-10 w-40 h-40 bg-yellow-200 rounded-full opacity-30"></div>
-        <div className="absolute -bottom-10 -right-10 w-60 h-60 bg-yellow-300 rounded-full opacity-20"></div>
       </section>
 
       {/* Featured Deals */}
       <section className="max-w-7xl mx-auto py-12 px-4">
-        <h2 className="text-2xl font-bold mb-6">Featured Deals</h2>
+        <h2 className="text-3xl font-bold mb-8 text-center text-gray-900">
+          Featured Deals
+        </h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           {deals.map((deal) => (
             <div
@@ -272,7 +203,9 @@ export default function HomePage() {
 
       {/* Categories */}
       <section className="max-w-7xl mx-auto py-12 px-4">
-        <h2 className="text-2xl font-bold mb-6">Shop by Category</h2>
+        <h2 className="text-2xl font-bold mb-6 text-gray-900 text-center">
+          Shop by Category
+        </h2>
         <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
           {categories.map((cat) => (
             <div
@@ -293,13 +226,18 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Partners Carousel */}
-      <section className="bg-gray-100 py-8">
-        <h2 className="text-2xl md:text-3xl font-bold mb-2 text-centr text-gray-900">Our Partners</h2>
-    <div className="w-24 h-1 bg-green-600 mx-auto mb-8 rounded-full"></div>
-        <div className="max-w-7xl mx-auto px-4 overflow-x-auto flex space-x-8">
+      {/* Partners */}
+      <section className="bg-white py-12">
+        <h2 className="text-2xl md:text-3xl font-bold mb-2 text-center text-gray-900">
+          Our Trusted Partners
+        </h2>
+        <div className="w-24 h-1 bg-yellow-600 mx-auto mb-8 rounded-full"></div>
+        <div className="max-w-7xl mx-auto px-4 flex overflow-x-auto space-x-8">
           {partners.map((p, i) => (
-            <div key={i} className="h-16 w-32 relative flex-shrink-0">
+            <div
+              key={i}
+              className="h-16 w-32 relative flex-shrink-0 grayscale hover:grayscale-0 transition"
+            >
               <Image
                 src={p}
                 alt={`Partner ${i + 1}`}
@@ -312,64 +250,39 @@ export default function HomePage() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-white border-t py-10">
+      <footer className="bg-gray-50 border-t py-10">
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
             <h3 className="font-bold mb-4">About Amvenix</h3>
             <p className="text-gray-500 text-sm">
-              Amvenix is a global online marketplace connecting farmers and
-              businesses with customers worldwide.
+              Amvenix connects suppliers and buyers worldwide with ease, security, and growth opportunities.
             </p>
           </div>
           <div>
             <h3 className="font-bold mb-4">Customer Service</h3>
             <ul className="text-gray-500 text-sm space-y-1">
-              <li>
-                <a href="#">Help Center</a>
-              </li>
-              <li>
-                <a href="#">Returns</a>
-              </li>
-              <li>
-                <a href="#">Shipping</a>
-              </li>
-              <li>
-                <a href="#">Contact Us</a>
-              </li>
+              <li><a href="#">Help Center</a></li>
+              <li><a href="#">Returns</a></li>
+              <li><a href="#">Shipping</a></li>
+              <li><a href="#">Contact Us</a></li>
             </ul>
           </div>
           <div>
             <h3 className="font-bold mb-4">Quick Links</h3>
             <ul className="text-gray-500 text-sm space-y-1">
-              <li>
-                <a href="#">Categories</a>
-              </li>
-              <li>
-                <a href="#">Deals</a>
-              </li>
-              <li>
-                <a href="#">About Us</a>
-              </li>
-              <li>
-                <a href="#">Blog</a>
-              </li>
+              <li><a href="#">Home</a></li>
+              <li><a href="#">Categories</a></li>
+              <li><a href="#">Deals</a></li>
+              <li><a href="#">About Us</a></li>
             </ul>
           </div>
           <div>
             <h3 className="font-bold mb-4">Follow Us</h3>
             <ul className="text-gray-500 text-sm space-y-1">
-              <li>
-                <a href="#">Facebook</a>
-              </li>
-              <li>
-                <a href="#">Twitter</a>
-              </li>
-              <li>
-                <a href="#">Instagram</a>
-              </li>
-              <li>
-                <a href="#">LinkedIn</a>
-              </li>
+              <li><a href="#">Facebook</a></li>
+              <li><a href="#">Instagram</a></li>
+              <li><a href="#">LinkedIn</a></li>
+              <li><a href="#">Twitter</a></li>
             </ul>
           </div>
         </div>

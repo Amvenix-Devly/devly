@@ -1,9 +1,10 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 
-export default function AboutPage() {
+export default function AgriculturePage() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const menuItems = [
@@ -18,11 +19,35 @@ export default function AboutPage() {
         { name: "Home & Kitchen", link: "/kitchen" },
         { name: "Machinery", link: "/machinery" },
       ],
+      
     },
     { name: "Deals", link: "/deals" },
     { name: "Suppliers", link: "/suppliers" },
     { name: "About Us", link: "/about" },
     { name: "Contact", link: "/contact" },
+  ];
+
+  const products = [
+    {
+      name: "Maize",
+      img: "/images/products/maize.jpg",
+      price: "৳150/kg",
+    },
+    {
+      name: "Wheat",
+      img: "/images/products/wheat.jpg",
+      price: "৳120/kg",
+    },
+    {
+      name: "Garlic",
+      img: "/images/products/garlic.jpg",
+      price: "৳250/kg",
+    },
+    {
+      name: "Onion",
+      img: "/images/products/onion.jpg",
+      price: "৳100/kg",
+    },
   ];
 
   return (
@@ -42,22 +67,22 @@ export default function AboutPage() {
           <div className="hidden md:flex space-x-6 items-center">
             {menuItems.map((item, i) => (
               <div key={i} className="relative group">
-                <a
+                <Link
                   href={item.link}
                   className="text-gray-700 hover:text-blue-600 font-medium"
                 >
                   {item.name}
-                </a>
+                </Link>
                 {item.submenu && (
                   <div className="absolute left-0 top-full bg-white shadow-md rounded-md mt-2 opacity-0 group-hover:opacity-100 transition-opacity">
                     {item.submenu.map((sub, idx) => (
-                      <a
+                      <Link
                         key={idx}
                         href={sub.link}
                         className="block px-4 py-2 hover:bg-gray-100"
                       >
                         {sub.name}
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 )}
@@ -94,22 +119,22 @@ export default function AboutPage() {
           <div className="md:hidden bg-white px-4 pt-2 pb-4 space-y-1">
             {menuItems.map((item, i) => (
               <div key={i}>
-                <a
+                <Link
                   href={item.link}
                   className="block text-gray-700 hover:text-blue-600 font-medium"
                 >
                   {item.name}
-                </a>
+                </Link>
                 {item.submenu && (
                   <div className="pl-4">
                     {item.submenu.map((sub, idx) => (
-                      <a
+                      <Link
                         key={idx}
                         href={sub.link}
                         className="block text-gray-600 py-1"
                       >
                         {sub.name}
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 )}
@@ -122,78 +147,48 @@ export default function AboutPage() {
       {/* Hero Section */}
       <section className="relative w-full h-[400px] md:h-[500px]">
         <Image
-          src="/images/banner/about-banner.jpg"
-          alt="About Amvenix"
+          src="/images/banner/agriculture-hero.jpg"
+          alt="Agriculture"
           fill
           style={{ objectFit: "cover" }}
         />
         <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center">
           <h1 className="text-white text-4xl md:text-6xl font-bold mb-4">
-            About Amvenix
+            Agriculture Products
           </h1>
           <p className="text-white text-lg md:text-xl max-w-2xl">
-            Empowering global trade through innovation and trust.
+            Explore high-quality agricultural products from verified suppliers.
           </p>
         </div>
       </section>
 
-      {/* Company Intro */}
-      <section className="max-w-7xl mx-auto py-16 px-4 grid md:grid-cols-2 gap-8 items-center">
-        <div>
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">
-            Who We Are
-          </h2>
-          <p className="text-gray-700 mb-4">
-            <strong>Amvenix</strong> is an innovative B2B e-commerce platform inspired by global leaders like Alibaba — connecting farmers, suppliers, and businesses to buyers around the world.
-          </p>
-          <p className="text-gray-700 mb-4">
-            We started with a vision to make agricultural and industrial trade easier, transparent, and more accessible. Our platform bridges the gap between local producers and global markets through technology, logistics, and trust.
-          </p>
-        </div>
-        <div className="relative h-80">
-          <Image
-            src="/images/about/about-us.jpg"
-            alt="Our Company"
-            fill
-            style={{ objectFit: "cover", borderRadius: "12px" }}
-          />
-        </div>
-      </section>
-
-      {/* Mission & Vision */}
-      <section className="bg-white py-16">
-        <div className="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-8">
-          <div className="p-6 bg-blue-50 rounded-xl shadow-sm hover:shadow-md transition">
-            <h3 className="text-2xl font-bold mb-4 text-blue-900">Our Mission</h3>
-            <p className="text-gray-700">
-              To empower suppliers, farmers, and manufacturers with a trusted online marketplace that ensures fair trade, sustainable growth, and access to a global audience.
-            </p>
-          </div>
-          <div className="p-6 bg-green-50 rounded-xl shadow-sm hover:shadow-md transition">
-            <h3 className="text-2xl font-bold mb-4 text-green-900">Our Vision</h3>
-            <p className="text-gray-700">
-              To become the world’s most reliable and inclusive e-commerce ecosystem — promoting innovation, sustainability, and prosperity for all.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Why Choose Us */}
+      {/* Products Section */}
       <section className="max-w-7xl mx-auto py-16 px-4">
-        <h2 className="text-3xl font-bold text-center mb-10 text-gray-900">Why Choose Amvenix?</h2>
-        <div className="grid md:grid-cols-3 gap-8">
-          {[
-            { title: "Global Marketplace", desc: "Reach buyers and suppliers across multiple continents with one trusted platform.", icon: "🌍" },
-            { title: "Secure Transactions", desc: "We ensure safe payments, verified suppliers, and full transaction protection.", icon: "🔒" },
-            { title: "Logistics Support", desc: "Integrated transport and delivery solutions for smooth order fulfillment.", icon: "🚚" },
-            { title: "Marketing & Growth", desc: "We help you promote your products with AI-powered marketing tools.", icon: "📈" },
-            { title: "Sustainability Focus", desc: "We promote eco-friendly trade practices and responsible sourcing.", icon: "🌱" },
-            { title: "Dedicated Support", desc: "24/7 customer care and business consulting for your continuous growth.", icon: "🤝" },
-          ].map((item, idx) => (
-            <div key={idx} className="bg-white p-6 rounded-xl shadow hover:shadow-lg transition flex flex-col items-center text-center">
-              <div className="text-5xl mb-4">{item.icon}</div>
-              <h3 className="font-bold text-xl mb-2">{item.title}</h3>
-              <p className="text-gray-600">{item.desc}</p>
+        <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">
+          Featured Agriculture Products
+        </h2>
+        <div className="grid md:grid-cols-4 gap-8">
+          {products.map((product, idx) => (
+            <div
+              key={idx}
+              className="bg-white p-6 rounded-xl shadow hover:shadow-lg transition flex flex-col items-center text-center"
+            >
+              <div className="relative h-40 w-full mb-4">
+                <Image
+                  src={product.img}
+                  alt={product.name}
+                  fill
+                  style={{ objectFit: "cover", borderRadius: "12px" }}
+                />
+              </div>
+              <h3 className="font-bold text-xl mb-2">{product.name}</h3>
+              <p className="text-gray-600 mb-4">{product.price}</p>
+              <Link
+                href={`/products/${product.name.toLowerCase()}`}
+                className="bg-yellow-600 text-white px-6 py-2 rounded shadow hover:bg-yellow-700 transition"
+              >
+                Buy Now
+              </Link>
             </div>
           ))}
         </div>
@@ -205,34 +200,34 @@ export default function AboutPage() {
           <div>
             <h3 className="font-bold mb-4">About Amvenix</h3>
             <p className="text-gray-500 text-sm">
-              Amvenix is a trusted global marketplace connecting suppliers, manufacturers, and buyers for sustainable business growth.
+              Amvenix connects suppliers and buyers worldwide with ease, security, and growth opportunities.
             </p>
           </div>
           <div>
             <h3 className="font-bold mb-4">Customer Service</h3>
             <ul className="text-gray-500 text-sm space-y-1">
-              <li><a href="#">Help Center</a></li>
-              <li><a href="#">Returns</a></li>
-              <li><a href="#">Shipping</a></li>
-              <li><a href="#">Contact Us</a></li>
+              <li><Link href="#">Help Center</Link></li>
+              <li><Link href="#">Returns</Link></li>
+              <li><Link href="#">Shipping</Link></li>
+              <li><Link href="#">Contact Us</Link></li>
             </ul>
           </div>
           <div>
             <h3 className="font-bold mb-4">Quick Links</h3>
             <ul className="text-gray-500 text-sm space-y-1">
-              <li><a href="/">Home</a></li>
-              <li><a href="/agriculture">Agriculture</a></li>
-              <li><a href="/deals">Deals</a></li>
-              <li><a href="/suppliers">Suppliers</a></li>
+              <li><Link href="/">Home</Link></li>
+              <li><Link href="/categories/agriculture">Categories</Link></li>
+              <li><Link href="/deals">Deals</Link></li>
+              <li><Link href="/about">About Us</Link></li>
             </ul>
           </div>
           <div>
             <h3 className="font-bold mb-4">Follow Us</h3>
             <ul className="text-gray-500 text-sm space-y-1">
-              <li><a href="#">Facebook</a></li>
-              <li><a href="#">Instagram</a></li>
-              <li><a href="#">LinkedIn</a></li>
-              <li><a href="#">Twitter</a></li>
+              <li><Link href="#">Facebook</Link></li>
+              <li><Link href="#">Instagram</Link></li>
+              <li><Link href="#">LinkedIn</Link></li>
+              <li><Link href="#">Twitter</Link></li>
             </ul>
           </div>
         </div>

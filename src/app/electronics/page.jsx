@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 
-export default function AboutPage() {
+export default function ElectronicsPage() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const menuItems = [
@@ -23,6 +23,15 @@ export default function AboutPage() {
     { name: "Suppliers", link: "/suppliers" },
     { name: "About Us", link: "/about" },
     { name: "Contact", link: "/contact" },
+  ];
+
+  const electronicsProducts = [
+    { name: "Smartphone", price: "$499", img: "/images/electronics/smartphone.jpg" },
+    { name: "Laptop", price: "$899", img: "/images/electronics/laptop.jpg" },
+    { name: "Headphones", price: "$99", img: "/images/electronics/headphones.jpg" },
+    { name: "Smartwatch", price: "$199", img: "/images/electronics/smartwatch.jpg" },
+    { name: "Camera", price: "$599", img: "/images/electronics/camera.jpg" },
+    { name: "Gaming Console", price: "$399", img: "/images/electronics/console.jpg" },
   ];
 
   return (
@@ -122,78 +131,45 @@ export default function AboutPage() {
       {/* Hero Section */}
       <section className="relative w-full h-[400px] md:h-[500px]">
         <Image
-          src="/images/banner/about-banner.jpg"
-          alt="About Amvenix"
+          src="/images/banner/electronics-hero.jpg"
+          alt="Electronics"
           fill
           style={{ objectFit: "cover" }}
         />
         <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center">
           <h1 className="text-white text-4xl md:text-6xl font-bold mb-4">
-            About Amvenix
+            Explore Electronics
           </h1>
           <p className="text-white text-lg md:text-xl max-w-2xl">
-            Empowering global trade through innovation and trust.
+            Find the latest gadgets, devices, and electronics from trusted suppliers.
           </p>
         </div>
       </section>
 
-      {/* Company Intro */}
-      <section className="max-w-7xl mx-auto py-16 px-4 grid md:grid-cols-2 gap-8 items-center">
-        <div>
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">
-            Who We Are
-          </h2>
-          <p className="text-gray-700 mb-4">
-            <strong>Amvenix</strong> is an innovative B2B e-commerce platform inspired by global leaders like Alibaba — connecting farmers, suppliers, and businesses to buyers around the world.
-          </p>
-          <p className="text-gray-700 mb-4">
-            We started with a vision to make agricultural and industrial trade easier, transparent, and more accessible. Our platform bridges the gap between local producers and global markets through technology, logistics, and trust.
-          </p>
-        </div>
-        <div className="relative h-80">
-          <Image
-            src="/images/about/about-us.jpg"
-            alt="Our Company"
-            fill
-            style={{ objectFit: "cover", borderRadius: "12px" }}
-          />
-        </div>
-      </section>
-
-      {/* Mission & Vision */}
-      <section className="bg-white py-16">
-        <div className="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-8">
-          <div className="p-6 bg-blue-50 rounded-xl shadow-sm hover:shadow-md transition">
-            <h3 className="text-2xl font-bold mb-4 text-blue-900">Our Mission</h3>
-            <p className="text-gray-700">
-              To empower suppliers, farmers, and manufacturers with a trusted online marketplace that ensures fair trade, sustainable growth, and access to a global audience.
-            </p>
-          </div>
-          <div className="p-6 bg-green-50 rounded-xl shadow-sm hover:shadow-md transition">
-            <h3 className="text-2xl font-bold mb-4 text-green-900">Our Vision</h3>
-            <p className="text-gray-700">
-              To become the world’s most reliable and inclusive e-commerce ecosystem — promoting innovation, sustainability, and prosperity for all.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Why Choose Us */}
+      {/* Products Section */}
       <section className="max-w-7xl mx-auto py-16 px-4">
-        <h2 className="text-3xl font-bold text-center mb-10 text-gray-900">Why Choose Amvenix?</h2>
+        <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">Our Electronics Products</h2>
         <div className="grid md:grid-cols-3 gap-8">
-          {[
-            { title: "Global Marketplace", desc: "Reach buyers and suppliers across multiple continents with one trusted platform.", icon: "🌍" },
-            { title: "Secure Transactions", desc: "We ensure safe payments, verified suppliers, and full transaction protection.", icon: "🔒" },
-            { title: "Logistics Support", desc: "Integrated transport and delivery solutions for smooth order fulfillment.", icon: "🚚" },
-            { title: "Marketing & Growth", desc: "We help you promote your products with AI-powered marketing tools.", icon: "📈" },
-            { title: "Sustainability Focus", desc: "We promote eco-friendly trade practices and responsible sourcing.", icon: "🌱" },
-            { title: "Dedicated Support", desc: "24/7 customer care and business consulting for your continuous growth.", icon: "🤝" },
-          ].map((item, idx) => (
-            <div key={idx} className="bg-white p-6 rounded-xl shadow hover:shadow-lg transition flex flex-col items-center text-center">
-              <div className="text-5xl mb-4">{item.icon}</div>
-              <h3 className="font-bold text-xl mb-2">{item.title}</h3>
-              <p className="text-gray-600">{item.desc}</p>
+          {electronicsProducts.map((product, idx) => (
+            <div key={idx} className="bg-white rounded-xl shadow hover:shadow-lg transition overflow-hidden">
+              <div className="relative h-64">
+                <Image
+                  src={product.img}
+                  alt={product.name}
+                  fill
+                  style={{ objectFit: "cover" }}
+                />
+              </div>
+              <div className="p-4 text-center">
+                <h3 className="font-semibold text-lg">{product.name}</h3>
+                <p className="text-gray-600">{product.price}</p>
+                <a
+                  href="#"
+                  className="mt-4 inline-block bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition"
+                >
+                  Buy Now
+                </a>
+              </div>
             </div>
           ))}
         </div>
@@ -221,7 +197,7 @@ export default function AboutPage() {
             <h3 className="font-bold mb-4">Quick Links</h3>
             <ul className="text-gray-500 text-sm space-y-1">
               <li><a href="/">Home</a></li>
-              <li><a href="/agriculture">Agriculture</a></li>
+              <li><a href="/categories/electronics">Electronics</a></li>
               <li><a href="/deals">Deals</a></li>
               <li><a href="/suppliers">Suppliers</a></li>
             </ul>
