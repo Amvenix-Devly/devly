@@ -9,9 +9,9 @@ export default function HomePage() {
 
   /** Hero slider */
   const banners = [
-    "/images/banner/banner1.jpg",
-    "/images/banner/banner2.jpg",
-    "/images/banner/banner3.jpg",
+    "/images/banner/banner1.JPG",
+    "/images/banner/banner2.JPG",
+    "/images/banner/banner3.JPG",
   ];
   const [current, setCurrent] = useState(0);
 
@@ -44,28 +44,28 @@ export default function HomePage() {
 
   /** Featured deals */
   const deals = [
-    { name: "Garlic", price: "$20", image: "/images/products/garlic.png" },
-    { name: "Wheat", price: "$15", image: "/images/products/wheat.png" },
-    { name: "Onion", price: "$10", image: "/images/products/onion.png" },
-    { name: "Jute", price: "$25", image: "/images/products/jute.png" },
-    { name: "Rice", price: "$18", image: "/images/products/rice.png" },
-    { name: "Potato", price: "$12", image: "/images/products/tea.png" },
+    { name: "Garlic", price: "$20", image: "/images\products\garlic.PNG" },
+    { name: "Wheat", price: "$15", image: "/images\products\wheat.PNG" },
+    { name: "Onion", price: "$10", image: "/images\products\onion.PNG" },
+    { name: "Jute", price: "$25", image: "images\products\jute.PNGg" },
+    { name: "Rice", price: "$18", image: "/images\products\rice.PNG" },
+    { name: "Tea", price: "$12", image: "/images\products\tea.PNG" },
   ];
 
   /** Categories */
   const categories = [
-    { name: "Agriculture", image: "/images/categories/agriculture.jpg" },
-    { name: "Electronics", image: "/images/categories/electronics.jpg" },
-    { name: "Clothing", image: "/images/categories/clothing.jpg" },
-    { name: "Home & Kitchen", image: "/images/categories/home.jpg" },
-    { name: "Machinery", image: "/images/categories/machinery.jpg" },
+    { name: "Agriculture", image: "/images\categories\agriculture.JPG" },
+    { name: "Electronics", image: "/images\categories\electronics.JPG" },
+    { name: "Clothing", image: "/images\categories\clothing.JPG" },
+    { name: "Home & Kitchen", image: "/images\categories\home.JPG" },
+    { name: "Machinery", image: "/images/categories/machinery.JPG" },
   ];
 
   /** Partners */
   const partners = [
-    "/images/partners/gco.png",
-    "/images/partners/agritech.jpg",
-        "/images/partners/amvenix-logo.png",
+    "/images/partners/gco.PNG",
+    "/images/partners/agritech.JPG",
+        "/images/partners/amvenix-logo.PNG",
   ];
 
   return (
@@ -75,7 +75,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
           <div className="flex items-center">
             <Image
-              src="/images/logo/amvenix-logo.png"
+              src="/images/logo/amvenix-logo.PNG"
               alt="Amvenix"
               width={140}
               height={40}
@@ -229,7 +229,7 @@ export default function HomePage() {
           </div>
           <div className="md:w-1/2 relative h-64 md:h-80">
             <Image
-              src="/images/supplier/supplier-banner.jpg"
+              src="/images/supplier/supplier-banner.JPG"
               alt="Stock Business"
               fill
               style={{ objectFit: "contain" }}
