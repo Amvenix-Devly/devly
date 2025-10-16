@@ -7,7 +7,7 @@ export default function ContactPage() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const menuItems = [
-    { name: "Home", link: "/" },
+    { name: "Home", link: "/home" },
     {
       name: "Categories",
       link: "#",

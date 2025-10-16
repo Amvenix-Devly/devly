@@ -29,8 +29,7 @@ export default function AgriculturePage() {
 
   const products = [
     {
-      name: "Maize",
-      img: "/images/products/maize.jpg",
+      name: "Onion", img: "/images/products/onion.jpg",
       price: "৳150/kg",
     },
     {
