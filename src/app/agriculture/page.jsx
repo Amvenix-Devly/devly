@@ -197,7 +197,7 @@ export default function AgriculturePage() {
       <footer className="bg-gray-50 border-t py-10">
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
-            <h3 className="font-bold mb-4">About osman</h3>
+            <h3 className="font-bold mb-4">About OsMan</h3>
             <p className="text-gray-500 text-sm">
               osman connects suppliers and buyers worldwide with ease, security, and growth opportunities.
             </p>
@@ -231,7 +231,7 @@ export default function AgriculturePage() {
           </div>
         </div>
         <div className="text-center mt-8 text-gray-400 text-sm">
-          &copy; {new Date().getFullYear()} osman. All rights reserved.
+          &copy; {new Date().getFullYear()} OsMan. All rights reserved.
         </div>
       </footer>
     </div>

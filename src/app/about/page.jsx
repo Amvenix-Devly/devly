@@ -126,13 +126,13 @@ export default function AboutPage() {
       <section className="relative w-full h-[400px] md:h-[500px]">
         <Image
           src="/images/banner/about.jpg"
-          alt="About osman"
+          alt="About OsMan"
           fill
           style={{ objectFit: "cover" }}
         />
         <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center">
           <h1 className="text-white text-4xl md:text-6xl font-bold mb-4">
-            About osman
+            About OsMan
           </h1>
           <p className="text-white text-lg md:text-xl max-w-2xl">
             Empowering global trade through innovation and trust.
@@ -145,7 +145,7 @@ export default function AboutPage() {
         <div>
           <h2 className="text-3xl font-bold text-gray-900 mb-4">Who We Are</h2>
           <p className="text-gray-700 mb-4">
-            <strong>osman</strong> is an innovative B2B e-commerce platform connecting farmers, suppliers, and businesses to buyers around the world.
+            <strong>OsMan</strong> is an innovative B2B e-commerce platform connecting farmers, suppliers, and businesses to buyers around the world.
           </p>
           <p className="text-gray-700 mb-4">
             We started with a vision to make trade easier, transparent, and more accessible, bridging the gap between local producers and global markets.
@@ -204,7 +204,7 @@ export default function AboutPage() {
       <footer className="bg-gray-50 border-t py-10">
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
-            <h3 className="font-bold mb-4">About osman</h3>
+            <h3 className="font-bold mb-4">About OsMan</h3>
             <p className="text-gray-500 text-sm">
               osman is a trusted global marketplace connecting suppliers, manufacturers, and buyers for sustainable business growth.
             </p>

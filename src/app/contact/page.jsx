@@ -182,7 +182,7 @@ export default function ContactPage() {
             <span className="text-3xl text-yellow-600">📍</span>
             <div>
               <div className="font-bold text-gray-900">Address</div>
-              <div className="text-gray-700">123 osman Avenue, Dhaka, Bangladesh</div>
+              <div className="text-gray-700">123 OsMan Avenue, Dhaka, Bangladesh</div>
             </div>
           </div>
         </div>
@@ -219,9 +219,9 @@ export default function ContactPage() {
       <footer className="bg-gray-50 border-t py-10">
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
-            <h3 className="font-bold mb-4">About osman</h3>
+            <h3 className="font-bold mb-4">About OsMan</h3>
             <p className="text-gray-500 text-sm">
-              osman is a trusted global marketplace connecting suppliers, manufacturers, and buyers for sustainable business growth.
+              OsMan is a trusted global marketplace connecting suppliers, manufacturers, and buyers for sustainable business growth.
             </p>
           </div>
           <div>

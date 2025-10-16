@@ -22,7 +22,7 @@ const categories = [
 
 const partners = [
   "/images/partners/gco.png",
-  "/images/partners/osman-logo.png",
+  "/images/partners/amvenix-logo.png",
   "/images/partners/agritech.jpg",
 ];
 
@@ -160,7 +160,7 @@ export default function DealsPage() {
         />
         <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center">
           <h1 className="text-white text-4xl md:text-6xl font-bold mb-4">
-            Amazing Deals on osman
+            Amazing Deals on OsMan
           </h1>
           <p className="text-white text-lg md:text-xl max-w-2xl">
             Browse and shop top deals from trusted suppliers worldwide.
@@ -287,7 +287,7 @@ export default function DealsPage() {
           </div>
         </div>
         <div className="text-center mt-8 text-gray-400 text-sm">
-          &copy; {new Date().getFullYear()} osman. All rights reserved.
+          &copy; {new Date().getFullYear()} OsMan. All rights reserved.
         </div>
       </footer>
     </div>
