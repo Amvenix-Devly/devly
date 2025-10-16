@@ -22,7 +22,7 @@ export default function HomePage() {
 
   /** Navbar Menu */
   const menuItems = [
-    { name: "Home", link: "/home" },
+    { name: "Home", link: "/" },
     {
       name: "Categories",
       link: "#",

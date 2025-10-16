@@ -30,7 +30,7 @@ export default function DealsPage() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const menuItems = [
-    { name: "Home", link: "/home" },
+    { name: "Home", link: "/" },
     {
       name: "Categories",
       link: "#",

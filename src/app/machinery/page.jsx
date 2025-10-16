@@ -7,7 +7,7 @@ export default function MachineryPage() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const menuItems = [
-    { name: "Home", link: "/home" },
+    { name: "Home", link: "/" },
     {
       name: "Categories",
       link: "#",
@@ -30,7 +30,7 @@ export default function MachineryPage() {
     { name: "Combine Harvester", price: "$45,000", img: "/images/machinery/harvester.jpg" },
     { name: "Plough", price: "$2,500", img: "/images/machinery/plough.jpg" },
     { name: "Seed Drill", price: "$3,200", img: "/images/machinery/seeddrill.jpg" },
-    { name: "Irrigation Pump", price: "$1,500", img: "/images/machinery/pump.jpg" },
+    { name: "Irrigation Pump", price: "$1,500", img: "/images/machinery/irrigationpump.jpg" },
     { name: "Cultivator", price: "$2,000", img: "/images/machinery/cultivator.jpg" },
   ];
 

@@ -7,7 +7,7 @@ export default function ElectronicsPage() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const menuItems = [
-    { name: "Home", link: "/home" },
+    { name: "Home", link: "/" },
     {
       name: "Categories",
       link: "#",
@@ -31,7 +31,7 @@ export default function ElectronicsPage() {
     { name: "Headphones", price: "$99", img: "/images/electronics/headphones.jpg" },
     { name: "Smartwatch", price: "$199", img: "/images/electronics/smartwatch.jpg" },
     { name: "Camera", price: "$599", img: "/images/electronics/camera.jpg" },
-    { name: "Gaming Console", price: "$399", img: "/images/electronics/console.jpg" },
+    { name: "Gaming Console", price: "$399", img: "/images/electronics/gaming-console.jpg" },
   ];
 
   return (

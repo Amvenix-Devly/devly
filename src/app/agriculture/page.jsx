@@ -8,7 +8,7 @@ export default function AgriculturePage() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const menuItems = [
-    { name: "Home", link: "/home" },
+    { name: "Home", link: "/" },
     {
       name: "Categories",
       link: "#",
@@ -29,22 +29,22 @@ export default function AgriculturePage() {
 
   const products = [
     {
-      name: "Onion", img: "/images/products/onion.jpg",
+      name: "Onion", img: "/images/agriculture/onion.png",
       price: "৳150/kg",
     },
     {
       name: "Wheat",
-      img: "/images/products/wheat.jpg",
+      img: "/images/agriculture/wheat.png",
       price: "৳120/kg",
     },
     {
       name: "Garlic",
-      img: "/images/products/garlic.jpg",
+      img: "/images/agriculture/garlic.png",
       price: "৳250/kg",
     },
     {
-      name: "Onion",
-      img: "/images/products/onion.jpg",
+      name: "Rice",
+      img: "/images/agriculture/rice.png",
       price: "৳100/kg",
     },
   ];
