@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
-    domains: ["amvenix.com", "amvenix.vercel.app"], 
+    domains: ["amvenix.com", "devly-mu.vercel.app"], 
   },
 };
 
