@@ -35,7 +35,7 @@ export default function HomePage() {
       ],
     },
     { name: "Deals", link: "/deals" },
-    { name: "Suppliers", link: "/suppliers" },
+    { name: "StockTrader", link: "/stocktrader" },
     { name: "About Us", link: "/about" },
     { name: "Contact", link: "/contact" },
   ];

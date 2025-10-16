@@ -20,7 +20,7 @@ export default function HomeKitchenPage() {
       ],
     },
     { name: "Deals", link: "/deals" },
-    { name: "Suppliers", link: "/suppliers" },
+  { name: "Stocktrader", link: "/stocktrader" },
     { name: "About Us", link: "/about" },
     { name: "Contact", link: "/contact" },
   ];
@@ -131,7 +131,7 @@ export default function HomeKitchenPage() {
       {/* Hero Section */}
       <section className="relative w-full h-[400px] md:h-[500px]">
         <Image
-          src="/images/banner/home-kitchen-hero.jpg"
+          src="/images/banner/homekithcen.jpg"
           alt="Home & Kitchen"
           fill
           style={{ objectFit: "cover" }}

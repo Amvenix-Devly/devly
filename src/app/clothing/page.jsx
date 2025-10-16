@@ -21,7 +21,7 @@ export default function ClothingPage() {
     
     },
     { name: "Deals", link: "/deals" },
-    { name: "Suppliers", link: "/suppliers" },
+    { name: "Stocktrader", link: "/stocktrader" },
     { name: "About Us", link: "/about" },
     { name: "Contact", link: "/contact" },
   ];
@@ -132,7 +132,7 @@ export default function ClothingPage() {
       {/* Hero Section */}
       <section className="relative w-full h-[400px] md:h-[500px]">
         <Image
-          src="/images/banner/clothing-hero.jpg"
+          src="/images/banner/clothing.jpg"
           alt="Clothing"
           fill
           style={{ objectFit: "cover" }}

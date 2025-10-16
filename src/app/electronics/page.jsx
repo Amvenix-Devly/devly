@@ -20,7 +20,7 @@ export default function ElectronicsPage() {
       ],
     },
     { name: "Deals", link: "/deals" },
-    { name: "Suppliers", link: "/suppliers" },
+   { name: "Stocktrader", link: "/stocktrader" },
     { name: "About Us", link: "/about" },
     { name: "Contact", link: "/contact" },
   ];
@@ -131,7 +131,7 @@ export default function ElectronicsPage() {
       {/* Hero Section */}
       <section className="relative w-full h-[400px] md:h-[500px]">
         <Image
-          src="/images/banner/electronics-hero.jpg"
+          src="/images/banner/electronics.jpg"
           alt="Electronics"
           fill
           style={{ objectFit: "cover" }}

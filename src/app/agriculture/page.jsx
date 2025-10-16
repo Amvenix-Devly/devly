@@ -147,7 +147,7 @@ export default function AgriculturePage() {
       {/* Hero Section */}
       <section className="relative w-full h-[400px] md:h-[500px]">
         <Image
-          src="/images/banner/agriculture-hero.jpg"
+          src="/images/banner/agriculture.jpg"
           alt="Agriculture"
           fill
           style={{ objectFit: "cover" }}

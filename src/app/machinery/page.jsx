@@ -20,7 +20,7 @@ export default function MachineryPage() {
       ],
     },
     { name: "Deals", link: "/deals" },
-    { name: "Suppliers", link: "/suppliers" },
+    { name: "Stocktrader", link: "/stocktrader" },
     { name: "About Us", link: "/about" },
     { name: "Contact", link: "/contact" },
   ];
@@ -131,7 +131,7 @@ export default function MachineryPage() {
       {/* Hero Section */}
       <section className="relative w-full h-[400px] md:h-[500px]">
         <Image
-          src="/images/banner/machinery-hero.jpg"
+          src="/images/banner/machinery.jpg"
           alt="Machinery"
           fill
           style={{ objectFit: "cover" }}

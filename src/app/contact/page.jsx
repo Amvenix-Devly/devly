@@ -20,7 +20,7 @@ export default function ContactPage() {
       ],
     },
     { name: "Deals", link: "/deals" },
-    { name: "Suppliers", link: "/suppliers" },
+  { name: "Stocktrader", link: "/stocktrader" },
     { name: "About Us", link: "/about" },
     { name: "Contact", link: "/contact" },
   ];
@@ -125,7 +125,7 @@ export default function ContactPage() {
       {/* Hero Section */}
       <section className="relative w-full h-[350px] md:h-[400px]">
         <Image
-          src="/images/banner/contact-banner.jpg"
+          src="/images/banner/contacts.jpg"
           alt="Contact Amvenix"
           fill
           style={{ objectFit: "cover" }}

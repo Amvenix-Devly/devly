@@ -43,7 +43,7 @@ export default function DealsPage() {
       ],
     },
     { name: "Deals", link: "/deals" },
-    { name: "Suppliers", link: "/Suppliers" },
+{ name: "Stocktrader", link: "/stocktrader" },
     { name: "About Us", link: "/about" },
     { name: "Contact", link: "/contact" },
   ];
@@ -153,7 +153,7 @@ export default function DealsPage() {
       {/* Hero Section */}
       <section className="relative w-full h-[400px] md:h-[500px]">
         <Image
-          src="/images/banner/deals-hero.jpg"
+          src="/images/banner/deals.jpg"
           alt="Deals"
           fill
           style={{ objectFit: "cover" }}

@@ -20,7 +20,7 @@ export default function AboutPage() {
       ],
     },
     { name: "Deals", link: "/deals" },
-    { name: "Suppliers", link: "/suppliers" },
+    { name: "Stocktrader", link: "/stocktrader" },
     { name: "About Us", link: "/about" },
     { name: "Contact", link: "/contact" },
   ];
@@ -125,7 +125,7 @@ export default function AboutPage() {
       {/* Hero Section */}
       <section className="relative w-full h-[400px] md:h-[500px]">
         <Image
-          src="/images/banner/about-banner.jpg"
+          src="/images/banner/about.jpg"
           alt="About Amvenix"
           fill
           style={{ objectFit: "cover" }}
@@ -153,7 +153,7 @@ export default function AboutPage() {
         </div>
         <div className="relative h-80">
           <Image
-            src="/images/about/about-us.jpg"
+            src="/images/banner/about1.jpg"
             alt="Our Company"
             fill
             style={{ objectFit: "cover", borderRadius: "12px" }}
