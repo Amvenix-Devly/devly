@@ -30,7 +30,7 @@ export default function HomePage() {
         { name: "Agriculture", link: "/agriculture" },
         { name: "Electronics", link: "/electronics" },
         { name: "Clothing", link: "/clothing" },
-        { name: "Home & Kitchen", link: "/kitchen" },
+        { name: "Home-Kitchen", link: "/kitchen" },
         { name: "Machinery", link: "/machinery" },
       ],
     },

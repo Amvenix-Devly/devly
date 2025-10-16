@@ -16,7 +16,7 @@ const categories = [
   { name: "Agriculture", image: "/images/categories/agriculture.jpg" },
   { name: "Electronics", image: "/images/categories/electronics.jpg" },
   { name: "Clothing", image: "/images/categories/clothing.jpg" },
-  { name: "Home & Kitchen", image: "/images/categories/home.jpg" },
+  { name: "Home-Kitchen", image: "/images/categories/home.jpg" },
   { name: "Machinery", image: "/images/categories/machinery.jpg" },
 ];
 
@@ -38,7 +38,7 @@ export default function DealsPage() {
           { name: "Agriculture", link: "/agriculture" },
         { name: "Electronics", link: "/electronics" },
         { name: "Clothing", link: "/clothing" },
-        { name: "Home & Kitchen", link: "/kitchen" },
+        { name: "Home-Kitchen", link: "/kitchen" },
         { name: "Machinery", link: "/machinery" },
       ],
     },
