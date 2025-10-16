@@ -22,7 +22,7 @@ const categories = [
 
 const partners = [
   "/images/partners/gco.png",
-  "/images/partners/amvenix-logo.png",
+  "/images/partners/osman-logo.png",
   "/images/partners/agritech.jpg",
 ];
 
@@ -55,8 +55,8 @@ export default function DealsPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
           <div className="flex items-center">
             <Image
-              src="/images/logo/amvenix-logo.png"
-              alt="Amvenix"
+              src="/images/logo/osman-logo.png"
+              alt="osman"
               width={140}
               height={40}
             />
@@ -160,7 +160,7 @@ export default function DealsPage() {
         />
         <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center">
           <h1 className="text-white text-4xl md:text-6xl font-bold mb-4">
-            Amazing Deals on Amvenix
+            Amazing Deals on osman
           </h1>
           <p className="text-white text-lg md:text-xl max-w-2xl">
             Browse and shop top deals from trusted suppliers worldwide.
@@ -253,9 +253,9 @@ export default function DealsPage() {
       <footer className="bg-gray-50 border-t py-10">
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
-            <h3 className="font-bold mb-4">About Amvenix</h3>
+            <h3 className="font-bold mb-4">About osman</h3>
             <p className="text-gray-500 text-sm">
-              Amvenix connects suppliers and buyers worldwide with ease, security, and growth opportunities.
+              osman connects suppliers and buyers worldwide with ease, security, and growth opportunities.
             </p>
           </div>
           <div>
@@ -287,9 +287,13 @@ export default function DealsPage() {
           </div>
         </div>
         <div className="text-center mt-8 text-gray-400 text-sm">
-          &copy; {new Date().getFullYear()} Amvenix. All rights reserved.
+          &copy; {new Date().getFullYear()} osman. All rights reserved.
         </div>
       </footer>
     </div>
   );
 }
+
+
+
+

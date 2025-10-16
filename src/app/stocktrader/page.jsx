@@ -47,8 +47,8 @@ export default function StockTraderPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
             <div className="flex items-center">
               <Image
-                src="/images/logo/amvenix-logo.png"
-                alt="Amvenix"
+                src="/images/logo/osman-logo.png"
+                alt="osman"
                 width={140}
                 height={40}
               />
@@ -142,13 +142,13 @@ export default function StockTraderPage() {
         <Image src="/images/banner/stocktrader.jpg" alt="Stock Trader" fill style={{ objectFit: "cover" }} />
         <div className="absolute inset-0 bg-black/40 flex flex-col items-center justify-center text-center">
           <h1 className="text-white text-4xl md:text-6xl font-bold">Start Your Stock Trading Business</h1>
-          <p className="text-white text-lg md:text-xl max-w-2xl mt-4">Connect with global buyers and expand your business with Amvenix.</p>
+          <p className="text-white text-lg md:text-xl max-w-2xl mt-4">Connect with global buyers and expand your business with osman.</p>
         </div>
       </section>
 
       {/* Features Section */}
       <section className="py-16 px-6 md:px-16 text-center">
-        <h2 className="text-3xl font-bold mb-10">Why Trade with Amvenix?</h2>
+        <h2 className="text-3xl font-bold mb-10">Why Trade with osman?</h2>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {features.map((f, i) => (
             <div key={i} className="bg-white p-8 rounded-xl shadow hover:shadow-lg transition">
@@ -177,7 +177,7 @@ export default function StockTraderPage() {
       {/* Call to Action */}
       <section className="bg-blue-600 text-white py-20 text-center flex flex-col items-center">
         <h2 className="text-3xl md:text-4xl font-bold mb-4">Start Trading Today</h2>
-        <p className="max-w-2xl mb-6 text-lg">Join Amvenix to connect with global buyers, list your stocks, and grow your trading business.</p>
+        <p className="max-w-2xl mb-6 text-lg">Join osman to connect with global buyers, list your stocks, and grow your trading business.</p>
         <a href="/register" className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-8 py-3 rounded-full transition">Register Now</a>
       </section>
 
@@ -185,8 +185,8 @@ export default function StockTraderPage() {
       <footer className="bg-gray-50 border-t py-10">
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
-            <h3 className="font-bold mb-4">About Amvenix</h3>
-            <p className="text-gray-500 text-sm">Amvenix is a trusted global marketplace connecting suppliers, manufacturers, and buyers for sustainable business growth.</p>
+            <h3 className="font-bold mb-4">About osman</h3>
+            <p className="text-gray-500 text-sm">osman is a trusted global marketplace connecting suppliers, manufacturers, and buyers for sustainable business growth.</p>
           </div>
           <div>
             <h3 className="font-bold mb-4">Customer Service</h3>
@@ -216,8 +216,12 @@ export default function StockTraderPage() {
             </ul>
           </div>
         </div>
-        <div className="text-center mt-8 text-gray-400 text-sm">&copy; {new Date().getFullYear()} Amvenix. All rights reserved.</div>
+        <div className="text-center mt-8 text-gray-400 text-sm">&copy; {new Date().getFullYear()} osman. All rights reserved.</div>
       </footer>
     </div>
   );
 }
+
+
+
+

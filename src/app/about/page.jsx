@@ -32,8 +32,8 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
           <div className="flex items-center">
             <Image
-              src="/images/logo/amvenix-logo.png"
-              alt="Amvenix"
+              src="/images/logo/osman-logo.png"
+              alt="osman"
               width={140}
               height={40}
             />
@@ -126,13 +126,13 @@ export default function AboutPage() {
       <section className="relative w-full h-[400px] md:h-[500px]">
         <Image
           src="/images/banner/about.jpg"
-          alt="About Amvenix"
+          alt="About osman"
           fill
           style={{ objectFit: "cover" }}
         />
         <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center">
           <h1 className="text-white text-4xl md:text-6xl font-bold mb-4">
-            About Amvenix
+            About osman
           </h1>
           <p className="text-white text-lg md:text-xl max-w-2xl">
             Empowering global trade through innovation and trust.
@@ -145,7 +145,7 @@ export default function AboutPage() {
         <div>
           <h2 className="text-3xl font-bold text-gray-900 mb-4">Who We Are</h2>
           <p className="text-gray-700 mb-4">
-            <strong>Amvenix</strong> is an innovative B2B e-commerce platform connecting farmers, suppliers, and businesses to buyers around the world.
+            <strong>osman</strong> is an innovative B2B e-commerce platform connecting farmers, suppliers, and businesses to buyers around the world.
           </p>
           <p className="text-gray-700 mb-4">
             We started with a vision to make trade easier, transparent, and more accessible, bridging the gap between local producers and global markets.
@@ -181,7 +181,7 @@ export default function AboutPage() {
 
       {/* Why Choose Us */}
       <section className="max-w-7xl mx-auto py-16 px-4">
-        <h2 className="text-3xl font-bold text-center mb-10 text-gray-900">Why Choose Amvenix?</h2>
+        <h2 className="text-3xl font-bold text-center mb-10 text-gray-900">Why Choose osman?</h2>
         <div className="grid md:grid-cols-3 gap-8">
           {[
             { title: "Global Marketplace", desc: "Reach buyers and suppliers across multiple continents with one trusted platform.", icon: "🌍" },
@@ -204,9 +204,9 @@ export default function AboutPage() {
       <footer className="bg-gray-50 border-t py-10">
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
-            <h3 className="font-bold mb-4">About Amvenix</h3>
+            <h3 className="font-bold mb-4">About osman</h3>
             <p className="text-gray-500 text-sm">
-              Amvenix is a trusted global marketplace connecting suppliers, manufacturers, and buyers for sustainable business growth.
+              osman is a trusted global marketplace connecting suppliers, manufacturers, and buyers for sustainable business growth.
             </p>
           </div>
           <div>
@@ -238,9 +238,13 @@ export default function AboutPage() {
           </div>
         </div>
         <div className="text-center mt-8 text-gray-400 text-sm">
-          &copy; {new Date().getFullYear()} Amvenix. All rights reserved.
+          &copy; {new Date().getFullYear()} osman. All rights reserved.
         </div>
       </footer>
     </div>
   );
 }
+
+
+
+

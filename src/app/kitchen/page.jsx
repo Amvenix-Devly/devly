@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 
-export default function HomeKitchenPage() {
+export default function KitchenPage() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const menuItems = [
@@ -25,13 +25,13 @@ export default function HomeKitchenPage() {
     { name: "Contact", link: "/contact" },
   ];
 
-  const homeKitchenProducts = [
-    { name: "Cookware Set", price: "$80", img: "/images/home-kitchen/cookware.jpg" },
-    { name: "Dinnerware Set", price: "$60", img: "/images/home-kitchen/dinnerware.jpg" },
-    { name: "Blender", price: "$45", img: "/images/home-kitchen/blender.jpg" },
-    { name: "Coffee Maker", price: "$70", img: "/images/home-kitchen/coffeemaker.jpg" },
-    { name: "Air Fryer", price: "$90", img: "/images/home-kitchen/airfryer.jpg" },
-    { name: "Microwave Oven", price: "$120", img: "/images/home-kitchen/microwave.jpg" },
+  const kitchenProducts = [
+    { name: "Cookware Set", price: "$80", img: "/images/kitchen/cookware.jpg" },
+    { name: "Dinnerware Set", price: "$60", img: "/images/kitchen/dinnerware.jpg" },
+    { name: "Blender", price: "$45", img: "/images/kitchen/blender.jpg" },
+    { name: "Coffee Maker", price: "$70", img: "/images/kitchen/coffeemaker.jpg" },
+    { name: "Air Fryer", price: "$90", img: "/images/kitchen/airfryer.jpg" },
+    { name: "Microwave Oven", price: "$120", img: "/images/kitchen/microwave.jpg" },
   ];
 
   return (
@@ -41,8 +41,8 @@ export default function HomeKitchenPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
           <div className="flex items-center">
             <Image
-              src="/images/logo/amvenix-logo.png"
-              alt="Amvenix"
+              src="/images/logo/osman-logo.png"
+              alt="osman"
               width={140}
               height={40}
             />
@@ -131,7 +131,7 @@ export default function HomeKitchenPage() {
       {/* Hero Section */}
       <section className="relative w-full h-[400px] md:h-[500px]">
         <Image
-          src="/images/banner/homekithcen.jpg"
+          src="/images/banner/kithcen1.jpg"
           alt="Home & Kitchen"
           fill
           style={{ objectFit: "cover" }}
@@ -150,7 +150,7 @@ export default function HomeKitchenPage() {
       <section className="max-w-7xl mx-auto py-16 px-4">
         <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">Home & Kitchen Products</h2>
         <div className="grid md:grid-cols-3 gap-8">
-          {homeKitchenProducts.map((product, idx) => (
+          {kitchenProducts.map((product, idx) => (
             <div key={idx} className="bg-white rounded-xl shadow hover:shadow-lg transition overflow-hidden">
               <div className="relative h-64">
                 <Image
@@ -179,9 +179,9 @@ export default function HomeKitchenPage() {
       <footer className="bg-gray-50 border-t py-10">
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
-            <h3 className="font-bold mb-4">About Amvenix</h3>
+            <h3 className="font-bold mb-4">About osman</h3>
             <p className="text-gray-500 text-sm">
-              Amvenix is a trusted global marketplace connecting suppliers, manufacturers, and buyers for sustainable business growth.
+              osman is a trusted global marketplace connecting suppliers, manufacturers, and buyers for sustainable business growth.
             </p>
           </div>
           <div>
@@ -213,9 +213,13 @@ export default function HomeKitchenPage() {
           </div>
         </div>
         <div className="text-center mt-8 text-gray-400 text-sm">
-          &copy; {new Date().getFullYear()} Amvenix. All rights reserved.
+          &copy; {new Date().getFullYear()} osman. All rights reserved.
         </div>
       </footer>
     </div>
   );
 }
+
+
+
+

@@ -32,8 +32,8 @@ export default function ContactPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
           <div className="flex items-center">
             <Image
-              src="/images/logo/amvenix-logo.png"
-              alt="Amvenix"
+              src="/images/logo/osman-logo.png"
+              alt="osman"
               width={140}
               height={40}
             />
@@ -126,7 +126,7 @@ export default function ContactPage() {
       <section className="relative w-full h-[350px] md:h-[400px]">
         <Image
           src="/images/banner/contacts.jpg"
-          alt="Contact Amvenix"
+          alt="Contact osman"
           fill
           style={{ objectFit: "cover" }}
         />
@@ -175,14 +175,14 @@ export default function ContactPage() {
             <span className="text-3xl text-green-600">✉️</span>
             <div>
               <div className="font-bold text-gray-900">Email</div>
-              <div className="text-gray-700">support@amvenix.com</div>
+              <div className="text-gray-700">support@osman.com</div>
             </div>
           </div>
           <div className="bg-yellow-50 p-6 rounded-xl shadow flex items-center gap-4">
             <span className="text-3xl text-yellow-600">📍</span>
             <div>
               <div className="font-bold text-gray-900">Address</div>
-              <div className="text-gray-700">123 Amvenix Avenue, Dhaka, Bangladesh</div>
+              <div className="text-gray-700">123 osman Avenue, Dhaka, Bangladesh</div>
             </div>
           </div>
         </div>
@@ -197,7 +197,7 @@ export default function ContactPage() {
         <div className="max-w-7xl mx-auto px-4 flex overflow-x-auto space-x-8">
           {[
             "/images/partners/gco.png",
-            "/images/partners/amvenix-logo.png",
+            "/images/partners/osman-logo.png",
             "/images/partners/agritech.jpg",
           ].map((p, i) => (
             <div
@@ -219,9 +219,9 @@ export default function ContactPage() {
       <footer className="bg-gray-50 border-t py-10">
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
-            <h3 className="font-bold mb-4">About Amvenix</h3>
+            <h3 className="font-bold mb-4">About osman</h3>
             <p className="text-gray-500 text-sm">
-              Amvenix is a trusted global marketplace connecting suppliers, manufacturers, and buyers for sustainable business growth.
+              osman is a trusted global marketplace connecting suppliers, manufacturers, and buyers for sustainable business growth.
             </p>
           </div>
           <div>
@@ -253,9 +253,13 @@ export default function ContactPage() {
           </div>
         </div>
         <div className="text-center mt-8 text-gray-400 text-sm">
-          &copy; {new Date().getFullYear()} Amvenix. All rights reserved.
+          &copy; {new Date().getFullYear()} osman. All rights reserved.
         </div>
       </footer>
     </div>
   );
 }
+
+
+
+

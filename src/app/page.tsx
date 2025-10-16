@@ -63,7 +63,7 @@ export default function HomePage() {
   const partners = [
     "/images/partners/agritech.jpg",
     "/images/partners/gco.png",
-    "/images/partners/amvenix-logo.png",
+    "/images/partners/osman-logo.png",
   ];
 
   return (
@@ -73,8 +73,8 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
           <div className="flex items-center">
             <Image
-              src="/images/logo/amvenix-logo.png"
-              alt="Amvenix"
+              src="/images/logo/osman-logo.png"
+              alt="osman"
               width={140}
               height={40}
             />
@@ -196,7 +196,7 @@ export default function HomePage() {
 
         <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
           <h1 className="text-white text-3xl md:text-5xl font-bold">
-            Welcome to Amvenix
+            Welcome to osman
           </h1>
         </div>
       </section>
@@ -206,7 +206,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="md:w-1/2">
             <h2 className="text-3xl md:text-4xl font-bold text-yellow-900 mb-4">
-              Start Your Stock Business with Amvenix
+              Start Your Stock Business with osman
             </h2>
             <p className="text-yellow-800 mb-6">
               Join thousands of suppliers and wholesalers expanding their business globally.
@@ -318,9 +318,9 @@ export default function HomePage() {
       <footer className="bg-white border-t py-10">
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
-            <h3 className="font-bold mb-4">About Amvenix</h3>
+            <h3 className="font-bold mb-4">About osman</h3>
             <p className="text-gray-500 text-sm">
-              Amvenix is a global online marketplace connecting farmers and businesses with customers worldwide.
+              osman is a global online marketplace connecting farmers and businesses with customers worldwide.
             </p>
           </div>
           <div>
@@ -352,9 +352,13 @@ export default function HomePage() {
           </div>
         </div>
         <div className="text-center mt-8 text-gray-400 text-sm">
-          &copy; {new Date().getFullYear()} Amvenix. All rights reserved.
+          &copy; {new Date().getFullYear()} osman. All rights reserved.
         </div>
       </footer>
     </div>
   );
 }
+
+
+
+
