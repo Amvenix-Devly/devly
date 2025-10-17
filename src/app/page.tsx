@@ -218,13 +218,13 @@ export default function HomePage() {
             </p>
             <div className="flex gap-4">
               <a
-                href="#"
+                href="/stockman"
                 className="bg-yellow-600 text-white px-6 py-3 rounded shadow hover:bg-yellow-700 transition"
               >
                 Join as Supplier
               </a>
               <a
-                href="#"
+                href="/stockman"
                 className="bg-white text-yellow-600 border border-yellow-600 px-6 py-3 rounded shadow hover:bg-yellow-100 transition"
               >
                 Learn More
