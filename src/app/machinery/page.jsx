@@ -36,7 +36,7 @@ export default function MachineryPage() {
   ];
 
   return (
-    <div className="bg-gray-50 font-sans">
+     <div className="bg-gray-50 font-sans">
   {/* Navbar */}
   <nav className="bg-white shadow sticky top-0 z-50">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
@@ -49,7 +49,7 @@ export default function MachineryPage() {
               width={140}
               height={40}
             />
-        
+          
         </Link>
       </div>
 
@@ -184,9 +184,9 @@ export default function MachineryPage() {
       <footer className="bg-gray-50 border-t py-10">
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
-            <h3 className="font-bold mb-4">About OsMan</h3>
+            <h3 className="font-bold mb-4">About osman</h3>
             <p className="text-gray-500 text-sm">
-              OsMan is a trusted global marketplace connecting suppliers, manufacturers, and buyers for sustainable business growth.
+              osman is a trusted global marketplace connecting suppliers, manufacturers, and buyers for sustainable business growth.
             </p>
           </div>
           <div>
@@ -218,7 +218,7 @@ export default function MachineryPage() {
           </div>
         </div>
         <div className="text-center mt-8 text-gray-400 text-sm">
-          &copy; {new Date().getFullYear()} OsMan. All rights reserved.
+          &copy; {new Date().getFullYear()} osman. All rights reserved.
         </div>
       </footer>
     </div>
