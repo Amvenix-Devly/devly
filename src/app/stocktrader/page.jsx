@@ -1,7 +1,8 @@
 "use client";
 
+import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import React, { useState } from "react";
 
 export default function StockTraderPage() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -47,15 +48,13 @@ export default function StockTraderPage() {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
       <div className="flex items-center">
         <Link href="/">
-          <a>
-            <Image
+                <Image
               src="/images/logo/osman-logo.png"
               alt="osman"
               width={140}
               height={40}
             />
-          </a>
-        </Link>
+                 </Link>
       </div>
   
             {/* Desktop Menu */}
@@ -225,6 +224,7 @@ export default function StockTraderPage() {
     </div>
   );
 }
+
 
 
 
