@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
-export default function ElectronicsPage() {
+export default function ShippingPage() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const menuItems = [
@@ -21,37 +21,56 @@ export default function ElectronicsPage() {
       ],
     },
     { name: "Deals", link: "/deals" },
-   { name: "Stocktrader", link: "/stocktrader" },
+    { name: "StockTrader", link: "/stocktrader" },
     { name: "About Us", link: "/about" },
     { name: "Contact", link: "/contact" },
   ];
 
-  const electronicsProducts = [
-    { name: "Smartphone", price: "$499", img: "/images/electronics/smartphone.jpg" },
-    { name: "Laptop", price: "$899", img: "/images/electronics/laptop.jpg" },
-    { name: "Headphones", price: "$99", img: "/images/electronics/headphones.jpg" },
-    { name: "Smartwatch", price: "$199", img: "/images/electronics/smartwatch.jpg" },
-    { name: "Camera", price: "$599", img: "/images/electronics/camera.jpg" },
-    { name: "Gaming Console", price: "$399", img: "/images/electronics/gaming-console.jpg" },
+  const shippingInfo = [
+    {
+      title: "Delivery Timeline",
+      description:
+        "Orders are processed within 1-2 business days. Standard shipping typically takes 5-7 business days. Expedited shipping takes 2-3 business days.",
+    },
+    {
+      title: "Shipping Charges",
+      description:
+        "Shipping costs vary depending on the product weight, dimensions, and destination. You can see the estimated shipping cost at checkout.",
+    },
+    {
+      title: "Tracking Your Order",
+      description:
+        "Once your order is shipped, you will receive a tracking number via email. You can track your order directly on our website or via the courier's website.",
+    },
+    {
+      title: "International Shipping",
+      description:
+        "We offer international shipping to selected countries. Delivery times and charges vary depending on location and customs procedures.",
+    },
+    {
+      title: "Lost or Damaged Packages",
+      description:
+        "If your package is lost or damaged during shipping, please contact our support team within 48 hours. We will assist you with a replacement or refund.",
+    },
   ];
 
   return (
-    <div className="bg-gray-50 font-sans">
-  {/* Navbar */}
-  <nav className="bg-white shadow sticky top-0 z-50">
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
-      <div className="flex items-center">
-        <Link href="/">
-        
-            <Image
-              src="/images/logo/osman-logo.png"
-              alt="osman"
-              width={140}
-              height={40}
-            />
-          
-        </Link>
-      </div>
+    <div className="bg-gray-50 font-sans min-h-screen flex flex-col">
+      {/* Navbar */}
+      <nav className="bg-white shadow sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
+          <div className="flex items-center">
+            <Link href="/">
+              <Image
+                src="/images/logo/osman-logo.png"
+                alt="osman"
+                width={140}
+                height={40}
+              />
+            </Link>
+          </div>
+
+          {/* Desktop Menu */}
           <div className="hidden md:flex space-x-6 items-center">
             {menuItems.map((item, i) => (
               <div key={i} className="relative group">
@@ -83,6 +102,7 @@ export default function ElectronicsPage() {
             />
           </div>
 
+          {/* Mobile Menu Button */}
           <div className="md:hidden">
             <button onClick={() => setMobileOpen(!mobileOpen)}>
               <svg
@@ -103,6 +123,7 @@ export default function ElectronicsPage() {
           </div>
         </div>
 
+        {/* Mobile Menu */}
         {mobileOpen && (
           <div className="md:hidden bg-white px-4 pt-2 pb-4 space-y-1">
             {menuItems.map((item, i) => (
@@ -132,60 +153,32 @@ export default function ElectronicsPage() {
         )}
       </nav>
 
-      {/* Hero Section */}
-      <section className="relative w-full h-[400px] md:h-[500px]">
-        <Image
-          src="/images/banner/electronics.jpg"
-          alt="Electronics"
-          fill
-          style={{ objectFit: "cover" }}
-        />
-        <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center">
-          <h1 className="text-white text-4xl md:text-6xl font-bold mb-4">
-            Explore Electronics
-          </h1>
-          <p className="text-white text-lg md:text-xl max-w-2xl">
-            Find the latest gadgets, devices, and electronics from trusted suppliers.
-          </p>
-        </div>
-      </section>
+      {/* Shipping Section */}
+      <main className="flex-grow max-w-4xl mx-auto py-16 px-4">
+        <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6 text-center">
+          Shipping Information
+        </h1>
+        <p className="text-gray-600 text-center mb-12">
+          Learn about our shipping policies, charges, and how to track your orders.
+        </p>
 
-      {/* Products Section */}
-      <section className="max-w-7xl mx-auto py-16 px-4">
-        <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">Our Electronics Products</h2>
-        <div className="grid md:grid-cols-3 gap-8">
-          {electronicsProducts.map((product, idx) => (
-            <div key={idx} className="bg-white rounded-xl shadow hover:shadow-lg transition overflow-hidden">
-              <div className="relative h-64">
-                <Image
-                  src={product.img}
-                  alt={product.name}
-                  fill
-                  style={{ objectFit: "cover" }}
-                />
-              </div>
-              <div className="p-4 text-center">
-                <h3 className="font-semibold text-lg">{product.name}</h3>
-                <p className="text-gray-600">{product.price}</p>
-                <a
-                  href="#"
-                  className="mt-4 inline-block bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition"
-                >
-                  Buy Now
-                </a>
-              </div>
+        <div className="space-y-6">
+          {shippingInfo.map((info, index) => (
+            <div key={index} className="bg-white shadow rounded-lg p-6">
+              <h3 className="text-xl font-semibold text-gray-700 mb-2">{info.title}</h3>
+              <p className="text-gray-600">{info.description}</p>
             </div>
           ))}
         </div>
-      </section>
+      </main>
 
       {/* Footer */}
-      <footer className="bg-gray-50 border-t py-10">
+      <footer className="bg-white border-t py-10 mt-16">
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
             <h3 className="font-bold mb-4">About OsMan</h3>
             <p className="text-gray-500 text-sm">
-              OsMan is a trusted global marketplace connecting suppliers, manufacturers, and buyers for sustainable business growth.
+              OsMan is a global online marketplace connecting farmers and businesses with customers worldwide.
             </p>
           </div>
           <div>
@@ -201,18 +194,18 @@ export default function ElectronicsPage() {
             <h3 className="font-bold mb-4">Quick Links</h3>
             <ul className="text-gray-500 text-sm space-y-1">
               <li><a href="/">Home</a></li>
-              <li><a href="/categories/electronics">Electronics</a></li>
-              <li><a href="/deals">Deals</a></li>
-              <li><a href="/suppliers">Suppliers</a></li>
+              <li><a href="#">Categories</a></li>
+              <li><a href="#">Deals</a></li>
+              <li><a href="#">About Us</a></li>
             </ul>
           </div>
           <div>
             <h3 className="font-bold mb-4">Follow Us</h3>
             <ul className="text-gray-500 text-sm space-y-1">
               <li><a href="#">Facebook</a></li>
+              <li><a href="#">Twitter</a></li>
               <li><a href="#">Instagram</a></li>
               <li><a href="#">LinkedIn</a></li>
-              <li><a href="#">Twitter</a></li>
             </ul>
           </div>
         </div>
@@ -223,7 +216,3 @@ export default function ElectronicsPage() {
     </div>
   );
 }
-
-
-
-

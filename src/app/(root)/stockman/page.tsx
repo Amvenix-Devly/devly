@@ -173,10 +173,10 @@ export default function JoinSupplierPage() {
           <div>
             <h3 className="font-bold mb-4">Quick Links</h3>
             <ul className="text-gray-500 text-sm space-y-1">
-              <li><Link href="/">Home</Link></li>
-              <li><a href="#">Categories</a></li>
-              <li><a href="#">Deals</a></li>
-              <li><a href="#">About Us</a></li>
+              <li><a href="/helpcenter">Help Center</a></li>
+              <li><a href="/returns">Returns</a></li>
+              <li><a href="/shipping">Shipping</a></li>
+              <li><a href="/contact">Contact Us</a></li>
             </ul>
           </div>
           <div>

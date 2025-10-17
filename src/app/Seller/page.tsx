@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
-export default function ElectronicsPage() {
+export default function SignUpPage() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const menuItems = [
@@ -21,37 +21,28 @@ export default function ElectronicsPage() {
       ],
     },
     { name: "Deals", link: "/deals" },
-   { name: "Stocktrader", link: "/stocktrader" },
+    { name: "StockTrader", link: "/stocktrader" },
     { name: "About Us", link: "/about" },
     { name: "Contact", link: "/contact" },
   ];
 
-  const electronicsProducts = [
-    { name: "Smartphone", price: "$499", img: "/images/electronics/smartphone.jpg" },
-    { name: "Laptop", price: "$899", img: "/images/electronics/laptop.jpg" },
-    { name: "Headphones", price: "$99", img: "/images/electronics/headphones.jpg" },
-    { name: "Smartwatch", price: "$199", img: "/images/electronics/smartwatch.jpg" },
-    { name: "Camera", price: "$599", img: "/images/electronics/camera.jpg" },
-    { name: "Gaming Console", price: "$399", img: "/images/electronics/gaming-console.jpg" },
-  ];
-
   return (
-    <div className="bg-gray-50 font-sans">
-  {/* Navbar */}
-  <nav className="bg-white shadow sticky top-0 z-50">
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
-      <div className="flex items-center">
-        <Link href="/">
-        
-            <Image
-              src="/images/logo/osman-logo.png"
-              alt="osman"
-              width={140}
-              height={40}
-            />
-          
-        </Link>
-      </div>
+    <div className="bg-gray-50 font-sans min-h-screen flex flex-col">
+      {/* Navbar */}
+      <nav className="bg-white shadow sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
+          <div className="flex items-center">
+            <Link href="/">
+              <Image
+                src="/images/logo/osman-logo.png"
+                alt="osman"
+                width={140}
+                height={40}
+              />
+            </Link>
+          </div>
+
+          {/* Desktop Menu */}
           <div className="hidden md:flex space-x-6 items-center">
             {menuItems.map((item, i) => (
               <div key={i} className="relative group">
@@ -83,6 +74,7 @@ export default function ElectronicsPage() {
             />
           </div>
 
+          {/* Mobile Menu Button */}
           <div className="md:hidden">
             <button onClick={() => setMobileOpen(!mobileOpen)}>
               <svg
@@ -103,6 +95,7 @@ export default function ElectronicsPage() {
           </div>
         </div>
 
+        {/* Mobile Menu */}
         {mobileOpen && (
           <div className="md:hidden bg-white px-4 pt-2 pb-4 space-y-1">
             {menuItems.map((item, i) => (
@@ -132,60 +125,86 @@ export default function ElectronicsPage() {
         )}
       </nav>
 
-      {/* Hero Section */}
-      <section className="relative w-full h-[400px] md:h-[500px]">
-        <Image
-          src="/images/banner/electronics.jpg"
-          alt="Electronics"
-          fill
-          style={{ objectFit: "cover" }}
-        />
-        <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center">
-          <h1 className="text-white text-4xl md:text-6xl font-bold mb-4">
-            Explore Electronics
-          </h1>
-          <p className="text-white text-lg md:text-xl max-w-2xl">
-            Find the latest gadgets, devices, and electronics from trusted suppliers.
+      {/* Sign Up Form */}
+      <main className="flex-grow flex items-center justify-center py-16">
+        <div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-md">
+          <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">
+            Create Your OsMan Account
+          </h2>
+          <form className="space-y-4">
+            <div>
+              <label className="block text-gray-700 font-medium mb-1">Full Name</label>
+              <input
+                type="text"
+                placeholder="John Doe"
+                className="w-full border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-500"
+              />
+            </div>
+            <div>
+              <label className="block text-gray-700 font-medium mb-1">Email</label>
+              <input
+                type="email"
+                placeholder="email@example.com"
+                className="w-full border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-500"
+              />
+            </div>
+            <div>
+              <label className="block text-gray-700 font-medium mb-1">Phone Number</label>
+              <input
+                type="text"
+                placeholder="+8801XXXXXXXXX"
+                className="w-full border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-500"
+              />
+            </div>
+            <div>
+              <label className="block text-gray-700 font-medium mb-1">Business Name</label>
+              <input
+                type="text"
+                placeholder="My Business"
+                className="w-full border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-500"
+              />
+            </div>
+            <div>
+              <label className="block text-gray-700 font-medium mb-1">Business Type</label>
+              <select className="w-full border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                <option value="">Select Type</option>
+                <option value="farmer">Farmer</option>
+                <option value="supplier">Supplier</option>
+                <option value="wholesaler">Wholesaler</option>
+                <option value="retailer">Retailer</option>
+              </select>
+            </div>
+            <div>
+              <label className="block text-gray-700 font-medium mb-1">Password</label>
+              <input
+                type="password"
+                placeholder="********"
+                className="w-full border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-500"
+              />
+            </div>
+            <button
+              type="submit"
+              className="w-full bg-yellow-600 text-white font-semibold py-2 rounded shadow hover:bg-yellow-700 transition"
+            >
+              Sign Up
+            </button>
+          </form>
+          <p className="mt-4 text-gray-600 text-sm text-center">
+            Already have an account?{" "}
+            <Link href="/login" className="text-yellow-600 font-medium">
+              Log In
+            </Link>
           </p>
         </div>
-      </section>
-
-      {/* Products Section */}
-      <section className="max-w-7xl mx-auto py-16 px-4">
-        <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">Our Electronics Products</h2>
-        <div className="grid md:grid-cols-3 gap-8">
-          {electronicsProducts.map((product, idx) => (
-            <div key={idx} className="bg-white rounded-xl shadow hover:shadow-lg transition overflow-hidden">
-              <div className="relative h-64">
-                <Image
-                  src={product.img}
-                  alt={product.name}
-                  fill
-                  style={{ objectFit: "cover" }}
-                />
-              </div>
-              <div className="p-4 text-center">
-                <h3 className="font-semibold text-lg">{product.name}</h3>
-                <p className="text-gray-600">{product.price}</p>
-                <a
-                  href="#"
-                  className="mt-4 inline-block bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition"
-                >
-                  Buy Now
-                </a>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+      </main>
 
       {/* Footer */}
-      <footer className="bg-gray-50 border-t py-10">
+      <footer className="bg-white border-t py-10">
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
             <h3 className="font-bold mb-4">About OsMan</h3>
             <p className="text-gray-500 text-sm">
-              OsMan is a trusted global marketplace connecting suppliers, manufacturers, and buyers for sustainable business growth.
+              OsMan is a global online marketplace connecting farmers and businesses with customers worldwide.
             </p>
           </div>
           <div>
@@ -201,18 +220,18 @@ export default function ElectronicsPage() {
             <h3 className="font-bold mb-4">Quick Links</h3>
             <ul className="text-gray-500 text-sm space-y-1">
               <li><a href="/">Home</a></li>
-              <li><a href="/categories/electronics">Electronics</a></li>
-              <li><a href="/deals">Deals</a></li>
-              <li><a href="/suppliers">Suppliers</a></li>
+              <li><a href="#">Categories</a></li>
+              <li><a href="#">Deals</a></li>
+              <li><a href="#">About Us</a></li>
             </ul>
           </div>
           <div>
             <h3 className="font-bold mb-4">Follow Us</h3>
             <ul className="text-gray-500 text-sm space-y-1">
               <li><a href="#">Facebook</a></li>
+              <li><a href="#">Twitter</a></li>
               <li><a href="#">Instagram</a></li>
               <li><a href="#">LinkedIn</a></li>
-              <li><a href="#">Twitter</a></li>
             </ul>
           </div>
         </div>
@@ -223,7 +242,3 @@ export default function ElectronicsPage() {
     </div>
   );
 }
-
-
-
-

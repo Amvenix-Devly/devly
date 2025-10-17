@@ -218,10 +218,10 @@ export default function AddToCartPage() {
           <div>
             <h3 className="font-bold mb-4">Customer Service</h3>
             <ul className="text-gray-500 text-sm space-y-1">
-              <li><Link href="#">Help Center</Link></li>
-              <li><Link href="#">Returns</Link></li>
-              <li><Link href="#">Shipping</Link></li>
-              <li><Link href="#">Contact Us</Link></li>
+              <li><a href="/helpcenter">Help Center</a></li>
+              <li><a href="/returns">Returns</a></li>
+              <li><a href="/shipping">Shipping</a></li>
+              <li><a href="/contact">Contact Us</a></li>
             </ul>
           </div>
           <div>

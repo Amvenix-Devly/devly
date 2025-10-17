@@ -2,26 +2,11 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
-export default function HomePage() {
-  const banners = [
-    "/images/banner/banner1.jpg",
-    "/images/banner/banner2.jpg",
-    "/images/banner/banner3.jpg"
-  ];
-  const [current, setCurrent] = useState(0);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % banners.length);
-    }, 4000);
-    return () => clearInterval(timer);
-  }, [banners.length]);
-
+export default function LearnMorePage() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  /** Navbar Menu */
   const menuItems = [
     { name: "Home", link: "/" },
     {
@@ -41,46 +26,47 @@ export default function HomePage() {
     { name: "Contact", link: "/contact" },
   ];
 
-  /** Featured Deals */
-  const deals = [
-    { name: "Garlic", price: "$20", image: "/images/products/garlic.png" },
-    { name: "Wheat", price: "$15", image: "/images/products/wheat.png" },
-    { name: "Onion", price: "$10", image: "/images/products/onion.png" },
-    { name: "Jute", price: "$25", image: "/images/products/jute.png" },
-    { name: "Rice", price: "$18", image: "/images/products/rice.png" },
-    { name: "Tea", price: "$12", image: "/images/products/tea.png" },
-  ];
-
-  /** Categories */
-  const categories = [
-    { name: "Agriculture", image: "/images/categories/agriculture.jpg" },
-    { name: "Electronics", image: "/images/categories/electronics.jpg" },
-    { name: "Clothing", image: "/images/categories/clothing.jpg" },
-    { name: "Home & Kitchen", image: "/images/categories/home.jpg" },
-    { name: "Machinery", image: "/images/categories/machinery.jpg" },
-  ];
-
-  /** Partners */
-  const partners = [
-    "/images/partners/agritech.jpg",
-    "/images/partners/gco.png",
-    "/images/partners/amvenix-logo.png",
+  const steps = [
+    {
+      title: "Sign Up",
+      description:
+        "Create your OsMan account by providing basic details like name, email, and business type.",
+      icon: "/images/steps/signup.png",
+    },
+    {
+      title: "Submit Business Info",
+      description:
+        "Provide your stock business details including products, location, and contact information.",
+      icon: "/images/steps/business.png",
+    },
+    {
+      title: "Verification",
+      description:
+        "Our team will verify your business details to ensure secure and authentic registration.",
+      icon: "/images/steps/verification.png",
+    },
+    {
+      title: "Start Selling",
+      description:
+        "Once approved, you can list your products and start expanding your business globally.",
+      icon: "/images/steps/start-selling.png",
+    },
   ];
 
   return (
-    <div className="bg-gray-50 font-sans">
+    <div className="bg-gray-50 font-sans min-h-screen flex flex-col">
       {/* Navbar */}
       <nav className="bg-white shadow sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
           <div className="flex items-center">
             <Link href="/">
-            <Image
-              src="/images/logo/osman-logo.png"
-              alt="osman"
-              width={140}
-              height={40}
-            />
-             </Link>
+              <Image
+                src="/images/logo/osman-logo.png"
+                alt="osman"
+                width={140}
+                height={40}
+              />
+            </Link>
           </div>
 
           {/* Desktop Menu */}
@@ -166,45 +152,7 @@ export default function HomePage() {
         )}
       </nav>
 
-      {/* Hero Slider */}
-      <section className="relative w-full h-[450px] md:h-[550px] overflow-hidden">
-        {banners.map((banner, idx) => (
-          <div
-            key={idx}
-            className={`absolute inset-0 transition-opacity duration-1000 ${
-              idx === current ? "opacity-100 z-10" : "opacity-0 z-0"
-            }`}
-          >
-            <Image
-              src={banner}
-              alt={`Banner ${idx}`}
-              fill
-              style={{ objectFit: "cover" }}
-            />
-          </div>
-        ))}
-
-        {/* Dots */}
-        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
-          {banners.map((_, idx) => (
-            <button
-              key={idx}
-              className={`h-2 w-2 rounded-full ${
-                idx === current ? "bg-white" : "bg-gray-400"
-              }`}
-              onClick={() => setCurrent(idx)}
-            />
-          ))}
-        </div>
-
-        <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
-          <h1 className="text-white text-3xl md:text-5xl font-bold">
-            Welcome to OsMan
-          </h1>
-        </div>
-      </section>
-
-      {/* Supplier Invitation Section */}
+      {/* Stock Business Hero Section */}
       <section className="bg-yellow-50 py-16 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="md:w-1/2">
@@ -217,18 +165,18 @@ export default function HomePage() {
               and amazing growth opportunities!
             </p>
             <div className="flex gap-4">
-              <a
+              <Link
                 href="/stockman"
                 className="bg-yellow-600 text-white px-6 py-3 rounded shadow hover:bg-yellow-700 transition"
               >
-                Join as Supplier
-              </a>
-              <a
+                Join as Stock Business
+              </Link>
+              <Link
                 href="/stockman"
                 className="bg-white text-yellow-600 border border-yellow-600 px-6 py-3 rounded shadow hover:bg-yellow-100 transition"
               >
-                <li><a href="/learnmore">Lear Mmore</a></li>
-              </a>
+                Learn More
+              </Link>
             </div>
           </div>
           <div className="md:w-1/2 relative h-64 md:h-80">
@@ -240,80 +188,49 @@ export default function HomePage() {
             />
           </div>
         </div>
-
         <div className="absolute -top-10 -left-10 w-40 h-40 bg-yellow-200 rounded-full opacity-30"></div>
         <div className="absolute -bottom-10 -right-10 w-60 h-60 bg-yellow-300 rounded-full opacity-20"></div>
       </section>
 
-      {/* Featured Deals */}
-      <section className="max-w-7xl mx-auto py-12 px-4">
-        <h2 className="text-2xl font-bold mb-6">Featured Deals</h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          {deals.map((deal) => (
-            <div
-              key={deal.name}
-              className="relative border rounded-lg overflow-hidden shadow hover:shadow-lg transition"
-            >
-              <div className="relative h-40">
-                <Image
-                  src={deal.image}
-                  alt={deal.name}
-                  fill
-                  style={{ objectFit: "cover" }}
-                />
+      {/* Step-by-Step Joining Guide */}
+      <section className="max-w-7xl mx-auto py-16 px-4">
+        <h2 className="text-3xl font-bold text-gray-800 mb-10 text-center">
+          How to Join OsMan Stock Business
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          {steps.map((step, idx) => (
+            <div key={idx} className="bg-white rounded-lg shadow p-6 text-center hover:shadow-lg transition">
+              <div className="w-20 h-20 mx-auto mb-4 relative">
+                <Image src={step.icon} alt={step.title} fill style={{ objectFit: "contain" }} />
               </div>
-              <div className="absolute inset-0 bg-black/0 hover:bg-black/30 flex items-center justify-center opacity-0 hover:opacity-100 transition">
-                <button className="bg-blue-600 text-white px-4 py-2 rounded">
-                  Add to Cart
-                </button>
-              </div>
-              <div className="p-3">
-                <h3 className="font-semibold">{deal.name}</h3>
-                <p className="text-red-600 font-bold">{deal.price}</p>
-              </div>
+              <h3 className="font-bold text-xl mb-2">{step.title}</h3>
+              <p className="text-gray-600">{step.description}</p>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Categories */}
-      <section className="max-w-7xl mx-auto py-12 px-4">
-        <h2 className="text-2xl font-bold mb-6">Shop by Category</h2>
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
-          {categories.map((cat) => (
-            <div
-              key={cat.name}
-              className="relative h-40 rounded-lg overflow-hidden shadow hover:scale-105 transition"
-            >
-              <Image
-                src={cat.image}
-                alt={cat.name}
-                fill
-                style={{ objectFit: "cover" }}
-              />
-              <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
-                <span className="text-white font-semibold">{cat.name}</span>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Partners */}
-      <section className="bg-gray-100 py-8">
-        <h2 className="text-2xl md:text-3xl font-bold mb-2 text-center text-gray-900">Our Partners</h2>
-        <div className="w-24 h-1 bg-green-600 mx-auto mb-8 rounded-full"></div>
-        <div className="max-w-7xl mx-auto px-4 overflow-x-auto flex space-x-8">
-          {partners.map((p, i) => (
-            <div key={i} className="h-16 w-32 relative flex-shrink-0">
-              <Image
-                src={p}
-                alt={`Partner ${i + 1}`}
-                fill
-                style={{ objectFit: "contain" }}
-              />
-            </div>
-          ))}
+      {/* Requirements / Benefits Section */}
+      <section className="bg-gray-100 py-16">
+        <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div>
+            <h3 className="text-2xl font-bold mb-4">Requirements / Eligibility</h3>
+            <ul className="list-disc list-inside text-gray-700 space-y-2">
+              <li>Valid business registration or trade license</li>
+              <li>Products or stock ready to sell</li>
+              <li>Bank account for transactions</li>
+              <li>Basic contact information and address</li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="text-2xl font-bold mb-4">Benefits of Joining</h3>
+            <ul className="list-disc list-inside text-gray-700 space-y-2">
+              <li>Global reach to customers and wholesalers</li>
+              <li>Secure transactions and easy onboarding</li>
+              <li>Marketing and promotional support</li>
+              <li>Grow your stock business efficiently</li>
+            </ul>
+          </div>
         </div>
       </section>
 
@@ -329,19 +246,19 @@ export default function HomePage() {
           <div>
             <h3 className="font-bold mb-4">Customer Service</h3>
             <ul className="text-gray-500 text-sm space-y-1">
-              <li><a href="/helpcenter">Help Center</a></li>
-              <li><a href="/returns">Returns</a></li>
-              <li><a href="/shipping">Shipping</a></li>
-              <li><a href="/contact">Contact Us</a></li>
+              <li><a href="#">Help Center</a></li>
+              <li><a href="#">Returns</a></li>
+              <li><a href="#">Shipping</a></li>
+              <li><a href="#">Contact Us</a></li>
             </ul>
           </div>
           <div>
             <h3 className="font-bold mb-4">Quick Links</h3>
             <ul className="text-gray-500 text-sm space-y-1">
-              <li><a href="/">Home</a></li>
-              <li><a href="#">Categories</a></li>
-              <li><a href="#">Deals</a></li>
-              <li><a href="#">About Us</a></li>
+              <li><a href="/helpcenter">Help Center</a></li>
+              <li><a href="/returns">Returns</a></li>
+              <li><a href="/shipping">Shipping</a></li>
+              <li><a href="/contact">Contact Us</a></li>
             </ul>
           </div>
           <div>
@@ -361,6 +278,3 @@ export default function HomePage() {
     </div>
   );
 }
-
-
-

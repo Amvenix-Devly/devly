@@ -192,10 +192,10 @@ export default function MachineryPage() {
           <div>
             <h3 className="font-bold mb-4">Customer Service</h3>
             <ul className="text-gray-500 text-sm space-y-1">
-              <li><a href="#">Help Center</a></li>
-              <li><a href="#">Returns</a></li>
-              <li><a href="#">Shipping</a></li>
-              <li><a href="#">Contact Us</a></li>
+              <li><a href="/helpcenter">Help Center</a></li>
+              <li><a href="/returns">Returns</a></li>
+              <li><a href="/shipping">Shipping</a></li>
+              <li><a href="/contact">Contact Us</a></li>
             </ul>
           </div>
           <div>
