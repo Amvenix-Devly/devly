@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useState, useEffect } from "react";
 
 export default function HomePage() {
@@ -72,12 +73,14 @@ export default function HomePage() {
       <nav className="bg-white shadow sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
           <div className="flex items-center">
+            <Link href="/">
             <Image
               src="/images/logo/osman-logo.png"
               alt="osman"
               width={140}
               height={40}
             />
+             </Link>
           </div>
 
           {/* Desktop Menu */}

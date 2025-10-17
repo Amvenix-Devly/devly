@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 
 export default function ContactPage() {
@@ -26,18 +27,22 @@ export default function ContactPage() {
   ];
 
   return (
-    <div className="bg-gray-50 font-sans">
-      {/* Navbar */}
-      <nav className="bg-white shadow sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
-          <div className="flex items-center">
+   <div className="bg-gray-50 font-sans">
+  {/* Navbar */}
+  <nav className="bg-white shadow sticky top-0 z-50">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
+      <div className="flex items-center">
+        <Link href="/">
+        
             <Image
               src="/images/logo/osman-logo.png"
               alt="osman"
               width={140}
               height={40}
             />
-          </div>
+        
+        </Link>
+      </div>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex space-x-6 items-center">
