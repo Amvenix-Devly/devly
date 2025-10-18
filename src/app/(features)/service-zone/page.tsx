@@ -2,44 +2,40 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
 
 export default function ServiceZonePage() {
-  const [mobileOpen, setMobileOpen] = useState(false);
 
- 
-/** Features of Service Zone */
-const serviceFeatures = [
-  {
-    icon: "🏠", // Interior Design & Home Decor
-    title: "Interior Design & Home Decor",
-    desc: "Design Your Dreams, Live Your Style!",
-  },
-  {
-    icon: "💻", // Web Design & IT Solutions
-    title: "Web Design & IT Solutions",
-    desc: "Build Your Online Presence, Seamlessly.",
-  },
-  {
-    icon: "🎉", // Event Planning & Management
-    title: "Event Planning & Management",
-    desc: "Turning Your Dream Event into Reality.",
-  },
-  {
-    icon: "📸", // Photography & Videography
-    title: "Photography & Videography",
-    desc: "Capturing Moments, Creating Memories.",
-  },
-];
-
+  /** Features of Service Zone */
+  const serviceFeatures = [
+    {
+      icon: "🏠", // Interior Design & Home Decor
+      title: "Interior Design & Home Decor",
+      desc: "Design Your Dreams, Live Your Style!",
+    },
+    {
+      icon: "💻", // Web Design & IT Solutions
+      title: "Web Design & IT Solutions",
+      desc: "Build Your Online Presence, Seamlessly.",
+    },
+    {
+      icon: "🎉", // Event Planning & Management
+      title: "Event Planning & Management",
+      desc: "Turning Your Dream Event into Reality.",
+    },
+    {
+      icon: "📸", // Photography & Videography
+      title: "Photography & Videography",
+      desc: "Capturing Moments, Creating Memories.",
+    },
+  ];
 
   /** Sample Service Items */
   const services = [
-    { name: "WebApps", image: "/images/services/webApps.jpg" },
-    { name: "Interior design", image: "/images/services/home-design.jpg" },
-    { name: "Wedding photography", image: "/images/services/wedding-photography.jpg" },
+    { name: "WebApps", image: "/images/services/WebApps.jpg" },
+    { name: "Interior Design", image: "/images/services/interior.jpg" },
+    { name: "Wedding Photography", image: "/images/services/wedding.jpg" },
     { name: "Mobile Apps", image: "/images/services/mobile-app.jpg" },
-    { name: "E-commerce site", image: "/images/services/ecommerce.jpg" },
+    { name: "E-commerce Site", image: "/images/services/ecommerce.jpg" },
   ];
 
   /** Partners */
@@ -51,50 +47,49 @@ const serviceFeatures = [
 
   return (
     <div className="bg-gray-50 font-sans">
- 
+
       {/* Hero Section */}
       <section className="relative w-full h-[450px] md:h-[550px] bg-green-600 flex items-center justify-center">
         <div className="text-center text-white px-4">
           <h1 className="text-3xl md:text-5xl font-bold mb-4">
             Service Zone with OsMan
           </h1>
-          <p className="text-lg md:text-2xl">
+          <p className="text-lg md:text-2xl mb-6">
             Service Anything, Anytime, Anywhere
           </p>
           <Link
             href="/service-provider-registration"
-            className="mt-6 inline-block bg-white text-green-600 px-6 py-3 rounded shadow hover:bg-gray-100 transition"
+            className="inline-block bg-white text-green-600 px-6 py-3 rounded shadow hover:bg-gray-100 transition"
           >
             Join as Service Provider
           </Link>
         </div>
       </section>
 
-{/* Features Section */}
-<section className="py-16 px-4 md:px-36 text-center">
-  <h2 className="text-3xl font-bold mb-10">Our Service Offerings</h2>
-  <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-    {serviceFeatures.map((f, i) => {
-      // সঠিক লিঙ্ক ঠিক করা
-      let link = "#";
-      if (f.title === "Interior Design & Home Decor") link = "/interior";
-      else if (f.title === "Web Design & IT Solutions") link = "/it-service";
-      else if (f.title === "Event Planning & Management") link = "/event-management";
-      else if (f.title === "Photography & Videography") link = "/photography";
+      {/* Features Section */}
+      <section className="py-16 px-4 md:px-36 text-center">
+        <h2 className="text-3xl font-bold mb-10">Our Service Offerings</h2>
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          {serviceFeatures.map((f, i) => {
+            // সঠিক লিঙ্ক ঠিক করা
+            let link = "#";
+            if (f.title === "Interior Design & Home Decor") link = "/interior";
+            else if (f.title === "Web Design & IT Solutions") link = "/it-service";
+            else if (f.title === "Event Planning & Management") link = "/event-management";
+            else if (f.title === "Photography & Videography") link = "/photography";
 
-      return (
-        <Link key={i} href={link} className="block">
-          <div className="bg-white p-8 rounded-xl shadow hover:shadow-lg transition cursor-pointer">
-            <div className="text-5xl mb-4">{f.icon}</div>
-            <h3 className="text-xl font-semibold mb-2">{f.title}</h3>
-            <p className="text-gray-600">{f.desc}</p>
-          </div>
-        </Link>
-      );
-    })}
-  </div>
-</section>
-
+            return (
+              <Link key={i} href={link} className="block">
+                <div className="bg-white p-8 rounded-xl shadow hover:shadow-lg transition cursor-pointer">
+                  <div className="text-5xl mb-4">{f.icon}</div>
+                  <h3 className="text-xl font-semibold mb-2">{f.title}</h3>
+                  <p className="text-gray-600">{f.desc}</p>
+                </div>
+              </Link>
+            );
+          })}
+        </div>
+      </section>
 
       {/* Sample Service Items */}
       <section className="max-w-7xl mx-auto py-12 px-4">
@@ -115,7 +110,6 @@ const serviceFeatures = [
               </div>
               <div className="p-3">
                 <h3 className="font-semibold">{item.name}</h3>
-                <p className="text-red-600 font-bold">{item.price}</p>
               </div>
             </div>
           ))}
@@ -140,6 +134,6 @@ const serviceFeatures = [
         </div>
       </section>
 
-          </div>
+    </div>
   );
 }
