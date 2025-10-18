@@ -3,25 +3,28 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaWhatsapp } from "react-icons/fa";
 
 export default function HomePage() {
-  const banners = [
+  const [currentBanner, setCurrentBanner] = useState(0);
+  const [mobileOpen, setMobileOpen] = useState(false);
+
+  /** Hero Banners */
+  
+  const heroBanners = [
     "/images/banner/banner1.jpg",
     "/images/banner/banner2.jpg",
-    "/images/banner/banner3.jpg"
-  ]; 
-  const [current, setCurrent] = useState(0);
+    "/images/banner/banner3.jpg",
+  ];
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % banners.length);
-    }, 4000);
+      setCurrentBanner((prev) => (prev + 1) % heroBanners.length);
+    }, 5000);
     return () => clearInterval(timer);
-  }, [banners.length]);
+  }, []);
 
-  const [mobileOpen, setMobileOpen] = useState(false);
-
-  /** Navbar Menu */
+/** Navbar Menu */
   const menuItems = [
     { name: "Home", link: "/" },
     {
@@ -41,226 +44,103 @@ export default function HomePage() {
     { name: "Contact", link: "/contact" },
   ];
 
-  /** Features */
+  /** Categories */
+  const categories = [
+    { name: "Agriculture & Agro Products", icon: "🧺", image: "/images/categories/agriculture.jpg" },
+    { name: "Industrial & Machinery", icon: "🏭", image: "/images/categories/machinery.jpg" },
+    { name: "Tools & Equipment", icon: "🧰", image: "/images/categories/tools.jpg" },
+    { name: "Home & Furniture", icon: "🏠", image: "/images/categories/home.jpg" },
+    { name: "Electronics & IT", icon: "💻", image: "/images/categories/electronics.jpg" },
+    { name: "Service Providers", icon: "🧾", image: "/images/categories/services.jpg" },
+    { name: "Stock / Bulk Supply Zone", icon: "🧑‍🌾", image: "/images/categories/stock.jpg" },
+  ];
+/** Features */
   const features = [
     { icon: "📈", title: "Market Place", desc: "Buy & Sell Anything, Anytime, Anywhere" },
     { icon: "💹", title: "Stock Business", desc: "Stock Anything, Anytime, Anywhere" },
     { icon: "🔒", title: "Service Zone", desc: "Service Anything, Anytime, Anywhere" },
   ];
 
-  /** Featured Deals */
-  const deals = [
-    { name: "Garlic", price: "$20", image: "/images/products/garlic.png" },
-    { name: "Wheat", price: "$15", image: "/images/products/wheat.png" },
-    { name: "Onion", price: "$10", image: "/images/products/onion.png" },
-    { name: "Jute", price: "$25", image: "/images/products/jute.png" },
-    { name: "Rice", price: "$18", image: "/images/products/rice.png" },
-    { name: "Tea", price: "$12", image: "/images/products/tea.png" },
+
+  /** Featured Suppliers */
+  const suppliers = [
+    { name: "Agro Supplier Rubel", rating: 4.9, image: "/images/suppliers/supplier1.jpg" },
+    { name: "Tech Solutions Ltd.", rating: 4.8, image: "/images/suppliers/supplier2.jpg" },
+    { name: "Furniture World", rating: 4.7, image: "/images/suppliers/supplier3.jpg" },
   ];
 
-  /** Categories */
-  const categories = [
-    { name: "Agriculture", image: "/images/categories/agriculture.jpg" },
-    { name: "Electronics", image: "/images/categories/electronics.jpg" },
-    { name: "Clothing", image: "/images/categories/clothing.jpg" },
-    { name: "Home", image: "/images/categories/home.jpg" },
-    { name: "Machinery", image: "/images/categories/machinery.jpg" },
+  /** Services */
+  const services = [
+    { name: "Web Design & IT", image: "/images/services/web.jpg" },
+    { name: "Marketing & Consultancy", image: "/images/services/marketing.jpg" },
+    { name: "Repair & Maintenance", image: "/images/services/repair.jpg" },
+    { name: "Logistics & Transportation", image: "/images/services/logistics.jpg" },
   ];
 
-  /** Partners */
-  const partners = [
-    "/images/partners/agritech.jpg",
-    "/images/partners/gco.png",
-    "/images/partners/amvenix-logo.png",
+  /** Stock / B2B Deals */
+  const stockDeals = [
+    { name: "Garlic", price: "$20", quantity: "100kg", MOQ: "50kg", image: "/images/products/garlic.png" },
+    { name: "Wheat", price: "$15", quantity: "200kg", MOQ: "100kg", image: "/images/products/wheat.png" },
+    { name: "Onion", price: "$10", quantity: "150kg", MOQ: "70kg", image: "/images/products/onion.png" },
   ];
 
-  return (
-    <div className="bg-gray-50 font-sans">
-      {/* Navbar */}
-      <nav className="bg-white shadow sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
-          <div className="flex items-center gap-4">
-            <Link href="/">
-              <Image src="/images/logo/osman-logo.png" alt="osman" width={140} height={40} />
-            </Link>
-            {/* Sign In / Create Account */}
-            <div className="hidden md:flex space-x-2">
-              <Link
-                href="/signin"
-                className="text-blue-600 font-semibold hover:underline"
-              >
-                Sign In
-              </Link>
-              <Link
-                href="/create-account"
-                className="text-white bg-blue-600 px-3 py-1 rounded hover:bg-blue-700 transition"
-              >
-                Create Account
-              </Link>
-              <Link
-                href="/cart"
-                className="text-gray-700 hover:text-blue-600 font-medium"
-              >
-                🛒
-              </Link>
-            </div>
-          </div>
+  /** Testimonials */
+  const testimonials = [
+    {
+      text: "OsMan এর মাধ্যমে আমি দেশের বাইরে প্রথম অর্ডার পেয়েছি — ধন্যবাদ টিম OsMan!",
+      author: "মো. রুবেল, Agro Supplier",
+    },
+    {
+      text: "Stock deals খুব সহজ হয়েছে OsMan দিয়ে, Bulk supply এখন অনেক smooth।",
+      author: "Tech Solutions Ltd.",
+    },
+  ];
 
-          {/* Desktop Menu */}
-          <div className="hidden md:flex space-x-6 items-center">
-            {menuItems.map((item, i) => (
-              <div key={i} className="relative group">
-                <Link
-                  href={item.link}
-                  className="text-gray-700 hover:text-blue-600 font-medium"
-                >
-                  {item.name}
-                </Link>
-                {item.submenu && (
-                  <div className="absolute left-0 top-full bg-white shadow-md rounded-md mt-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                    {item.submenu.map((sub, idx) => (
-                      <Link
-                        key={idx}
-                        href={sub.link}
-                        className="block px-4 py-2 hover:bg-gray-100"
-                      >
-                        {sub.name}
-                      </Link>
-                    ))}
-                  </div>
-                )}
-              </div>
-            ))}
-            <input
-              type="text"
-              placeholder="Search products"
-              className="border rounded-md px-3 py-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-          </div>
+return (
+  <div className="bg-gray-50 font-sans">
+    {/* ================= Header ================= */}
+    
+      {/* ================= Hero Banner ================= */}
+<section className="relative w-full h-[500px]">
+  {/* ফিক্সড ব্যানার */}
+  <Image
+    src="/images/banner/banner3.jpg"
+    alt="Hero Banner"
+    fill
+    className="object-cover"
+  />
 
-          {/* Mobile Menu Button */}
-          <div className="md:hidden">
-            <button onClick={() => setMobileOpen(!mobileOpen)}>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            </button>
-          </div>
-        </div>
+  {/* Overlay Text */}
+  <div className="absolute inset-0 bg-black/40 flex flex-col items-center justify-center text-center text-white px-6">
+    <h1 className="text-4xl md:text-6xl font-bold mb-4">
+      Grow Your Business with OsMan
+    </h1>
+    <p className="text-lg md:text-xl mb-6 max-w-2xl">
+      Connect with verified buyers, suppliers, and service providers worldwide.
+    </p>
+    <div className="flex gap-4">
+      <Link
+        href="/create-stock"
+        className="bg-blue-600 px-6 py-3 rounded-md font-semibold hover:bg-blue-700 transition"
+      >
+        Start Selling & Stock
+      </Link>
+      <Link
+        href="/deals"
+        className="bg-white text-blue-600 px-6 py-3 rounded-md font-semibold hover:bg-gray-100 transition"
+      >
+        Explore Categories
+      </Link>
+    </div>
+    <div className="flex gap-6 mt-6 text-sm md:text-base">
+      <span>✅ Verified Suppliers</span>
+      <span>🔒 Secure Transactions</span>
+      <span>🕒 24/7 Support</span>
+    </div>
+  </div>
+</section>
 
-        {/* Mobile Menu */}
-        {mobileOpen && (
-          <div className="md:hidden bg-white px-4 pt-2 pb-4 space-y-1">
-            {menuItems.map((item, i) => (
-              <div key={i}>
-                <Link
-                  href={item.link}
-                  className="block text-gray-700 hover:text-blue-600 font-medium"
-                >
-                  {item.name}
-                </Link>
-                {item.submenu && (
-                  <div className="pl-4">
-                    {item.submenu.map((sub, idx) => (
-                      <Link
-                        key={idx}
-                        href={sub.link}
-                        className="block text-gray-600 py-1"
-                      >
-                        {sub.name}
-                      </Link>
-                    ))}
-                  </div>
-                )}
-              </div>
-            ))}
-            <div className="flex gap-2 mt-2">
-              <Link href="/signin" className="text-blue-600 font-semibold">Sign In</Link>
-              <Link href="/create-account" className="text-white bg-blue-600 px-3 py-1 rounded">Create Account</Link>
-              <Link href="/cart" className="text-gray-700">🛒</Link>
-            </div>
-          </div>
-        )}
-      </nav>
-
-      {/* Hero Slider */}
-      <section className="relative w-full h-[450px] md:h-[550px] overflow-hidden">
-        {banners.map((banner, idx) => (
-          <div
-            key={idx}
-            className={`absolute inset-0 transition-opacity duration-1000 ${
-              idx === current ? "opacity-100 z-10" : "opacity-0 z-0"
-            }`}
-          >
-            <Image src={banner} alt={`Banner ${idx}`} fill style={{ objectFit: "cover" }} />
-          </div>
-        ))}
-
-        {/* Dots */}
-        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
-          {banners.map((_, idx) => (
-            <button
-              key={idx}
-              className={`h-2 w-2 rounded-full ${idx === current ? "bg-white" : "bg-gray-400"}`}
-              onClick={() => setCurrent(idx)}
-            />
-          ))}
-        </div>
-
-        <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
-          <h1 className="text-white text-3xl md:text-5xl font-bold">
-            Welcome to OsMan
-          </h1>
-        </div>
-      </section>
-
-      {/* Supplier Invitation Section */}
-      <section className="bg-yellow-50 py-16 relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-8">
-          <div className="md:w-1/2">
-            <h2 className="text-3xl md:text-4xl font-bold text-yellow-900 mb-4">
-              Start Your Stock Business with OsMan
-            </h2>
-            <p className="text-yellow-800 mb-6">
-              Join thousands of suppliers and wholesalers expanding their business globally.
-              We offer easy onboarding, global reach, secure transactions, marketing support,
-              and amazing growth opportunities!
-            </p>
-            <div className="flex gap-4">
-              <Link
-                href="/stockman"
-                className="bg-yellow-600 text-white px-6 py-3 rounded shadow hover:bg-yellow-700 transition"
-              >
-                Join as Supplier
-              </Link>
-              <Link
-                href="/learnmore"
-                className="bg-white text-yellow-600 border border-yellow-600 px-6 py-3 rounded shadow hover:bg-yellow-100 transition"
-              >
-                Learn More
-              </Link>
-            </div>
-          </div>
-          <div className="md:w-1/2 relative h-64 md:h-80">
-            <Image
-              src="/images/supplier/supplier-banner.jpg"
-              alt="Stock Business"
-              fill
-              style={{ objectFit: "contain" }}
-            />
-          </div>
-        </div>
-        <div className="absolute -top-10 -left-10 w-40 h-40 bg-yellow-200 rounded-full opacity-30"></div>
-        <div className="absolute -bottom-10 -right-10 w-60 h-60 bg-yellow-300 rounded-full opacity-20"></div>
-      </section>
-
-      {/* Features Section */}
+{/* Features Section */}
       <section className="py-16 px-16 md:px-36 text-center">
         <h2 className="text-3xl font-bold mb-10">One Platform for All Business & Service</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -288,98 +168,140 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Featured Deals */}
-      <section className="max-w-7xl mx-auto py-12 px-4">
-        <h2 className="text-2xl font-bold mb-6">Featured Deals</h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          {deals.map((deal) => (
-            <div key={deal.name} className="relative border rounded-lg overflow-hidden shadow hover:shadow-lg transition">
-              <div className="relative h-40">
-                <Image src={deal.image} alt={deal.name} fill style={{ objectFit: "cover" }} />
-              </div>
-              <div className="absolute inset-0 bg-black/0 hover:bg-black/30 flex items-center justify-center opacity-0 hover:opacity-100 transition">
-                <Link href="/addtocart" className="bg-blue-600 text-white px-4 py-2 rounded">
-                  Add to Cart
-                </Link>
-              </div>
-              <div className="p-3">
-                <h3 className="font-semibold">{deal.name}</h3>
-                <p className="text-red-600 font-bold">{deal.price}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Categories */}
-      <section className="max-w-7xl mx-auto py-12 px-4">
-        <h2 className="text-2xl font-bold mb-6">OsMan Universe Our Concern</h2>
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+      {/* ================= Category Highlights ================= */}
+      <section className="max-w-7xl mx-auto py-16 px-6">
+        <h2 className="text-3xl font-bold mb-10 text-center">Explore Categories</h2>
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
           {categories.map((cat) => (
-            <div key={cat.name} className="relative h-40 rounded-lg overflow-hidden shadow hover:scale-105 transition">
-              <Image src={cat.image} alt={cat.name} fill style={{ objectFit: "cover" }} />
-              <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
-                <span className="text-white font-semibold">{cat.name}</span>
+            <div key={cat.name} className="bg-white rounded-lg shadow hover:shadow-lg transition text-center p-4 cursor-pointer">
+              <div className="text-4xl mb-2">{cat.icon}</div>
+              <h3 className="font-semibold">{cat.name}</h3>
+              <Image src={cat.image} alt={cat.name} width={80} height={80} className="mx-auto mt-2 rounded" />
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ================= Featured Suppliers ================= */}
+      <section className="bg-gray-100 py-16">
+        <div className="max-w-7xl mx-auto px-6">
+          <h2 className="text-3xl font-bold mb-10 text-center">Top Verified Stock Trader</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {suppliers.map((s) => (
+              <div key={s.name} className="bg-white rounded-lg shadow p-4 text-center hover:shadow-lg transition">
+                <Image src={s.image} alt={s.name} width={120} height={120} className="mx-auto rounded-full" />
+                <h3 className="font-semibold mt-4">{s.name}</h3>
+                <p className="text-yellow-500">⭐ {s.rating}</p>
+                <Link href="/sellers" className="mt-3 inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">Visit Store</Link>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ================= Featured Suppliers ================= */}
+      <section className="bg-gray-100 py-16">
+        <div className="max-w-7xl mx-auto px-6">
+          <h2 className="text-3xl font-bold mb-10 text-center">Top Verified Sellers</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {suppliers.map((s) => (
+              <div key={s.name} className="bg-white rounded-lg shadow p-4 text-center hover:shadow-lg transition">
+                <Image src={s.image} alt={s.name} width={120} height={120} className="mx-auto rounded-full" />
+                <h3 className="font-semibold mt-4">{s.name}</h3>
+                <p className="text-yellow-500">⭐ {s.rating}</p>
+                <Link href="/sellers" className="mt-3 inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">Visit Store</Link>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ================= Services Marketplace ================= */}
+      <section className="max-w-7xl mx-auto py-16 px-6">
+        <h2 className="text-3xl font-bold mb-10 text-center">Services Marketplace</h2>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          {services.map((s) => (
+            <div key={s.name} className="bg-white rounded-lg shadow hover:shadow-lg transition p-4 text-center">
+              <Image src={s.image} alt={s.name} width={120} height={80} className="mx-auto mb-2 rounded" />
+              <h3 className="font-semibold">{s.name}</h3>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Partners */}
-      <section className="bg-gray-100 py-8">
-        <h2 className="text-2xl md:text-3xl font-bold mb-2 text-center text-gray-900">Our Partners</h2>
-        <div className="w-24 h-1 bg-green-600 mx-auto mb-8 rounded-full"></div>
-        <div className="max-w-7xl mx-auto px-4 overflow-x-auto flex space-x-8">
-          {partners.map((p, i) => (
-            <div key={i} className="h-16 w-32 relative flex-shrink-0">
-              <Image src={p} alt={`Partner ${i + 1}`} fill style={{ objectFit: "contain" }} />
+      {/* ================= Stock / B2B Deals ================= */}
+      <section className="bg-gray-100 py-16">
+        <div className="max-w-7xl mx-auto px-6">
+          <h2 className="text-3xl font-bold mb-10 text-center">Bulk & B2B Deals</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {stockDeals.map((d) => (
+              <div key={d.name} className="bg-white rounded-lg shadow p-4 hover:shadow-lg transition">
+                <Image src={d.image} alt={d.name} width={120} height={120} className="mx-auto mb-2 rounded" />
+                <h3 className="font-semibold">{d.name}</h3>
+                <p>Qty: {d.quantity}</p>
+                <p>Price: {d.price}</p>
+                <p>MOQ: {d.MOQ}</p>
+                <Link href="/stocktrader" className="mt-3 inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">Order Now</Link>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ================= Why Choose OsMan ================= */}
+      <section className="max-w-7xl mx-auto py-16 px-6 text-center">
+        <h2 className="text-3xl font-bold mb-10">Why Choose OsMan?</h2>
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
+          {[
+            "✅ Verified Suppliers & Buyers",
+            "🔒 Safe & Secured Payment",
+            "📦 Smart Logistics Support",
+            "🌍 Global Trade Support",
+            "🤝 Partnership & Promotion Assistance",
+          ].map((item, idx) => (
+            <div key={idx} className="bg-white rounded-lg shadow p-6 hover:shadow-lg transition">{item}</div>
+          ))}
+        </div>
+      </section>
+
+      {/* ================= Testimonials ================= */}
+      <section className="bg-gray-100 py-16 px-6 text-center">
+        <h2 className="text-3xl font-bold mb-10">Success Stories</h2>
+        <div className="max-w-4xl mx-auto space-y-8">
+          {testimonials.map((t, idx) => (
+            <div key={idx} className="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+              <p className="italic">"{t.text}"</p>
+              <p className="mt-4 font-semibold">— {t.author}</p>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-white border-t py-10">
-        <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div>
-            <h3 className="font-bold mb-4">About OsMan</h3>
-            <p className="text-gray-500 text-sm">
-              OsMan is a global online marketplace connecting farmers and businesses with customers worldwide.
-            </p>
-          </div>
-          <div>
-            <h3 className="font-bold mb-4">Customer Service</h3>
-            <ul className="text-gray-500 text-sm space-y-1">
-              <li><Link href="/helpcenter">Help Center</Link></li>
-              <li><Link href="/returns">Returns</Link></li>
-              <li><Link href="/shipping">Shipping</Link></li>
-              <li><Link href="/contact">Contact Us</Link></li>
-            </ul>
-          </div>
-          <div>
-            <h3 className="font-bold mb-4">Quick Links</h3>
-            <ul className="text-gray-500 text-sm space-y-1">
-              <li><Link href="/">Home</Link></li>
-              <li><Link href="/marketplace">Categories</Link></li>
-              <li><Link href="/deals">Deals</Link></li>
-              <li><Link href="/about">About Us</Link></li>
-            </ul>
-          </div>
-          <div>
-            <h3 className="font-bold mb-4">Follow Us</h3>
-            <ul className="text-gray-500 text-sm space-y-1">
-              <li><Link href="#">Facebook</Link></li>
-              <li><Link href="#">Twitter</Link></li>
-              <li><Link href="#">Instagram</Link></li>
-              <li><Link href="#">LinkedIn</Link></li>
-            </ul>
-          </div>
+      {/* ================= Promotional CTA ================= */}
+      <section className="py-16 bg-blue-600 text-white text-center">
+        <h2 className="text-3xl font-bold mb-6">Join OsMan Today</h2>
+        <p className="mb-6">Start selling, explore deals, or find reliable suppliers worldwide.</p>
+        <div className="flex justify-center gap-4">
+          <Link href="/create-account" className="bg-white text-blue-600 px-6 py-3 rounded-md font-semibold hover:bg-gray-100 transition">Join Free</Link>
+          <Link href="/marketplace" className="border border-white px-6 py-3 rounded-md font-semibold hover:bg-white hover:text-blue-600 transition">Explore Deals</Link>
         </div>
-        <div className="text-center mt-8 text-gray-400 text-sm">
-          &copy; {new Date().getFullYear()} OsMan. All rights reserved.
+      </section>
+
+      {/* ================= Blog / Insights ================= */}
+      <section className="max-w-7xl mx-auto py-16 px-6">
+        <h2 className="text-3xl font-bold mb-10 text-center">Insights & Blog</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {[
+            { title: "How to Start Your Online Stock Business in Bangladesh", link: "#" },
+            { title: "Top 5 Export-Ready Products from Local Farmers", link: "#" },
+            { title: "Boost Your Service Business Online", link: "#" },
+          ].map((b, idx) => (
+            <Link key={idx} href={b.link} className="block bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+              <h3 className="font-semibold">{b.title}</h3>
+            </Link>
+          ))}
         </div>
-      </footer>
+      </section>
     </div>
   );
 }

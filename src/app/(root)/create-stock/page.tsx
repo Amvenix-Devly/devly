@@ -33,28 +33,7 @@ export default function JoinSupplierPage() {
 
   return (
     <div className="bg-gray-50 font-sans min-h-screen flex flex-col">
-      {/* ✅ Header */}
-      <nav className="bg-white shadow sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
-          <div className="flex items-center">
-            <Link href="/">
-              <Image
-                src="/images/logo/osman-logo.png"
-                alt="OsMan"
-                width={140}
-                height={40}
-              />
-            </Link>
-          </div>
-
-          <div className="hidden md:flex space-x-6 items-center">
-            <Link href="/" className="text-gray-700 hover:text-blue-600 font-medium">Home</Link>
-            <Link href="/about" className="text-gray-700 hover:text-blue-600 font-medium">About</Link>
-            <Link href="/contact" className="text-gray-700 hover:text-blue-600 font-medium">Contact</Link>
-          </div>
-        </div>
-      </nav>
-
+     
       {/* ✅ Main Section */}
       <section className="flex-1 bg-yellow-50 py-16 relative overflow-hidden">
         <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-10">
@@ -152,47 +131,6 @@ export default function JoinSupplierPage() {
         <div className="absolute -bottom-10 -right-10 w-60 h-60 bg-yellow-300 rounded-full opacity-20"></div>
       </section>
 
-      {/* ✅ Footer */}
-      <footer className="bg-white border-t py-10 mt-10">
-        <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div>
-            <h3 className="font-bold mb-4">About OsMan</h3>
-            <p className="text-gray-500 text-sm">
-              OsMan is a global online marketplace connecting farmers and businesses with customers worldwide.
-            </p>
-          </div>
-          <div>
-            <h3 className="font-bold mb-4">Customer Service</h3>
-            <ul className="text-gray-500 text-sm space-y-1">
-              <li><a href="#">Help Center</a></li>
-              <li><a href="#">Returns</a></li>
-              <li><a href="#">Shipping</a></li>
-              <li><a href="#">Contact Us</a></li>
-            </ul>
-          </div>
-          <div>
-            <h3 className="font-bold mb-4">Quick Links</h3>
-            <ul className="text-gray-500 text-sm space-y-1">
-              <li><a href="/helpcenter">Help Center</a></li>
-              <li><a href="/returns">Returns</a></li>
-              <li><a href="/shipping">Shipping</a></li>
-              <li><a href="/contact">Contact Us</a></li>
-            </ul>
-          </div>
-          <div>
-            <h3 className="font-bold mb-4">Follow Us</h3>
-            <ul className="text-gray-500 text-sm space-y-1">
-              <li><a href="#">Facebook</a></li>
-              <li><a href="#">Twitter</a></li>
-              <li><a href="#">Instagram</a></li>
-              <li><a href="#">LinkedIn</a></li>
-            </ul>
-          </div>
-        </div>
-        <div className="text-center mt-8 text-gray-400 text-sm">
-          &copy; {new Date().getFullYear()} OsMan. All rights reserved.
-        </div>
-      </footer>
     </div>
   );
 }
