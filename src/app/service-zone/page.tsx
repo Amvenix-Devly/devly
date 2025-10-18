@@ -4,9 +4,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
-export default function AboutPage() {
+export default function ServiceZonePage() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
+  /** Navbar Menu */
   const menuItems = [
     { name: "Home", link: "/" },
     {
@@ -21,28 +22,66 @@ export default function AboutPage() {
       ],
     },
     { name: "Deals", link: "/deals" },
-    { name: "Stocktrader", link: "/stocktrader" },
+    { name: "StockTrader", link: "/stocktrader" },
     { name: "About Us", link: "/about" },
     { name: "Contact", link: "/contact" },
+  ];
+
+  /** Features of Service Zone */
+  const serviceFeatures = [
+    {
+      icon: "🛠️",
+      title: "Home Services",
+      desc: "Plumbing, Electrical, Cleaning & more at your doorstep.",
+    },
+    {
+      icon: "🚗",
+      title: "Vehicle Services",
+      desc: "Car repair, Bike maintenance, and professional checkups.",
+    },
+    {
+      icon: "💻",
+      title: "IT Services",
+      desc: "Website, software, and tech support services anytime.",
+    },
+    {
+      icon: "🏢",
+      title: "Business Services",
+      desc: "Consulting, Logistics, and professional solutions for businesses.",
+    },
+  ];
+
+  /** Sample Service Items */
+  const services = [
+    { name: "Plumbing", price: "$25", image: "/images/services/plumbing.jpg" },
+    { name: "Electrical", price: "$30", image: "/images/services/electrical.jpg" },
+    { name: "Car Repair", price: "$50", image: "/images/services/car-repair.jpg" },
+    { name: "Cleaning", price: "$20", image: "/images/services/cleaning.jpg" },
+    { name: "IT Support", price: "$40", image: "/images/services/it-support.jpg" },
+  ];
+
+  /** Partners */
+  const partners = [
+    "/images/partners/agritech.jpg",
+    "/images/partners/gco.png",
+    "/images/partners/amvenix-logo.png",
   ];
 
   return (
     <div className="bg-gray-50 font-sans">
       {/* Navbar */}
-  <nav className="bg-white shadow sticky top-0 z-50">
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
-      <div className="flex items-center">
-        <Link href="/">
-        
-            <Image
-              src="/images/logo/osman-logo.png"
-              alt="osman"
-              width={140}
-              height={40}
-            />
-        
-        </Link>
-      </div>
+      <nav className="bg-white shadow sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
+          <div className="flex items-center">
+            <Link href="/">
+              <Image
+                src="/images/logo/osman-logo.png"
+                alt="osman"
+                width={140}
+                height={40}
+              />
+            </Link>
+          </div>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex space-x-6 items-center">
@@ -71,7 +110,7 @@ export default function AboutPage() {
             ))}
             <input
               type="text"
-              placeholder="Search products"
+              placeholder="Search services"
               className="border rounded-md px-3 py-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
@@ -128,90 +167,88 @@ export default function AboutPage() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative w-full h-[400px] md:h-[500px]">
-        <Image
-          src="/images/banner/about.jpg"
-          alt="About OsMan"
-          fill
-          style={{ objectFit: "cover" }}
-        />
-        <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center">
-          <h1 className="text-white text-4xl md:text-6xl font-bold mb-4">
-            About OsMan
+      <section className="relative w-full h-[450px] md:h-[550px] bg-green-600 flex items-center justify-center">
+        <div className="text-center text-white px-4">
+          <h1 className="text-3xl md:text-5xl font-bold mb-4">
+            Service Zone with OsMan
           </h1>
-          <p className="text-white text-lg md:text-xl max-w-2xl">
-            Empowering global trade through innovation and trust.
+          <p className="text-lg md:text-2xl">
+            Service Anything, Anytime, Anywhere
           </p>
+          <Link
+            href="/serviceprovider"
+            className="mt-6 inline-block bg-white text-green-600 px-6 py-3 rounded shadow hover:bg-gray-100 transition"
+          >
+            Join as Service Provider
+          </Link>
         </div>
       </section>
 
-      {/* Company Intro */}
-      <section className="max-w-7xl mx-auto py-16 px-4 grid md:grid-cols-2 gap-8 items-center">
-        <div>
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">Who We Are</h2>
-          <p className="text-gray-700 mb-4">
-            <strong>OsMan</strong> is an innovative B2B e-commerce platform connecting farmers, suppliers, and businesses to buyers around the world.
-          </p>
-          <p className="text-gray-700 mb-4">
-            We started with a vision to make trade easier, transparent, and more accessible, bridging the gap between local producers and global markets.
-          </p>
-        </div>
-        <div className="relative h-80">
-          <Image
-            src="/images/banner/about1.jpg"
-            alt="Our Company"
-            fill
-            style={{ objectFit: "cover", borderRadius: "12px" }}
-          />
+      {/* Features Section */}
+      <section className="py-16 px-4 md:px-36 text-center">
+        <h2 className="text-3xl font-bold mb-10">Our Service Offerings</h2>
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          {serviceFeatures.map((f, i) => (
+            <div key={i} className="bg-white p-8 rounded-xl shadow hover:shadow-lg transition">
+              <div className="text-5xl mb-4">{f.icon}</div>
+              <h3 className="text-xl font-semibold mb-2">{f.title}</h3>
+              <p className="text-gray-600">{f.desc}</p>
+            </div>
+          ))}
         </div>
       </section>
 
-      {/* Mission & Vision */}
-      <section className="bg-white py-16">
-        <div className="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-8">
-          <div className="p-6 bg-blue-50 rounded-xl shadow-sm hover:shadow-md transition">
-            <h3 className="text-2xl font-bold mb-4 text-blue-900">Our Mission</h3>
-            <p className="text-gray-700">
-              To empower suppliers, farmers, and manufacturers with a trusted online marketplace ensuring fair trade, sustainable growth, and global access.
-            </p>
-          </div>
-          <div className="p-6 bg-green-50 rounded-xl shadow-sm hover:shadow-md transition">
-            <h3 className="text-2xl font-bold mb-4 text-green-900">Our Vision</h3>
-            <p className="text-gray-700">
-              To become the world’s most reliable and inclusive e-commerce ecosystem — promoting innovation, sustainability, and prosperity for all.
-            </p>
-          </div>
+      {/* Sample Service Items */}
+      <section className="max-w-7xl mx-auto py-12 px-4">
+        <h2 className="text-2xl font-bold mb-6">Popular Services</h2>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          {services.map((item) => (
+            <div
+              key={item.name}
+              className="relative border rounded-lg overflow-hidden shadow hover:shadow-lg transition"
+            >
+              <div className="relative h-40">
+                <Image
+                  src={item.image}
+                  alt={item.name}
+                  fill
+                  style={{ objectFit: "cover" }}
+                />
+              </div>
+              <div className="p-3">
+                <h3 className="font-semibold">{item.name}</h3>
+                <p className="text-red-600 font-bold">{item.price}</p>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
-      {/* Why Choose Us */}
-      <section className="max-w-7xl mx-auto py-16 px-4">
-        <h2 className="text-3xl font-bold text-center mb-10 text-gray-900">Why Choose OsMan?</h2>
-        <div className="grid md:grid-cols-3 gap-8">
-          {[
-            { title: "Global Marketplace", desc: "Reach buyers and suppliers across multiple continents with one trusted platform.", icon: "🌍" },
-            { title: "Secure Transactions", desc: "Safe payments, verified suppliers, and full transaction protection.", icon: "🔒" },
-            { title: "Logistics Support", desc: "Integrated transport and delivery solutions for smooth order fulfillment.", icon: "🚚" },
-            { title: "Marketing & Growth", desc: "Promote your products with AI-powered marketing tools.", icon: "📈" },
-            { title: "Sustainability Focus", desc: "Eco-friendly trade practices and responsible sourcing.", icon: "🌱" },
-            { title: "Dedicated Support", desc: "24/7 customer care and business consulting for continuous growth.", icon: "🤝" },
-          ].map((item, idx) => (
-            <div key={idx} className="bg-white p-6 rounded-xl shadow hover:shadow-lg transition flex flex-col items-center text-center">
-              <div className="text-5xl mb-4">{item.icon}</div>
-              <h3 className="font-bold text-xl mb-2">{item.title}</h3>
-              <p className="text-gray-600">{item.desc}</p>
+      {/* Partners Section */}
+      <section className="bg-gray-100 py-8">
+        <h2 className="text-2xl md:text-3xl font-bold mb-2 text-center text-gray-900">Our Partners</h2>
+        <div className="w-24 h-1 bg-green-600 mx-auto mb-8 rounded-full"></div>
+        <div className="max-w-7xl mx-auto px-4 overflow-x-auto flex space-x-8">
+          {partners.map((p, i) => (
+            <div key={i} className="h-16 w-32 relative flex-shrink-0">
+              <Image
+                src={p}
+                alt={`Partner ${i + 1}`}
+                fill
+                style={{ objectFit: "contain" }}
+              />
             </div>
           ))}
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-50 border-t py-10">
+      <footer className="bg-white border-t py-10">
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
             <h3 className="font-bold mb-4">About OsMan</h3>
             <p className="text-gray-500 text-sm">
-              osman is a trusted global marketplace connecting suppliers, manufacturers, and buyers for sustainable business growth.
+              OsMan is a global online marketplace connecting service providers and customers worldwide.
             </p>
           </div>
           <div>
@@ -227,29 +264,25 @@ export default function AboutPage() {
             <h3 className="font-bold mb-4">Quick Links</h3>
             <ul className="text-gray-500 text-sm space-y-1">
               <li><a href="/">Home</a></li>
-              <li><a href="/agriculture">Agriculture</a></li>
-              <li><a href="/deals">Deals</a></li>
-              <li><a href="/suppliers">Suppliers</a></li>
+              <li><a href="#">Categories</a></li>
+              <li><a href="#">Deals</a></li>
+              <li><a href="#">About Us</a></li>
             </ul>
           </div>
           <div>
             <h3 className="font-bold mb-4">Follow Us</h3>
             <ul className="text-gray-500 text-sm space-y-1">
               <li><a href="#">Facebook</a></li>
+              <li><a href="#">Twitter</a></li>
               <li><a href="#">Instagram</a></li>
               <li><a href="#">LinkedIn</a></li>
-              <li><a href="#">Twitter</a></li>
             </ul>
           </div>
         </div>
         <div className="text-center mt-8 text-gray-400 text-sm">
-          &copy; {new Date().getFullYear()} osman. All rights reserved.
+          &copy; {new Date().getFullYear()} OsMan. All rights reserved.
         </div>
       </footer>
     </div>
   );
 }
-
-
-
-

@@ -9,7 +9,7 @@ export default function HomePage() {
     "/images/banner/banner1.jpg",
     "/images/banner/banner2.jpg",
     "/images/banner/banner3.jpg"
-  ];
+  ]; 
   const [current, setCurrent] = useState(0);
 
   useEffect(() => {
@@ -26,7 +26,7 @@ export default function HomePage() {
     { name: "Home", link: "/" },
     {
       name: "Categories",
-      link: "#",
+      link: "/marketplace",
       submenu: [
         { name: "Agriculture", link: "/agriculture" },
         { name: "Electronics", link: "/electronics" },
@@ -39,6 +39,13 @@ export default function HomePage() {
     { name: "StockTrader", link: "/stocktrader" },
     { name: "About Us", link: "/about" },
     { name: "Contact", link: "/contact" },
+  ];
+
+  /** Features */
+  const features = [
+    { icon: "📈", title: "Market Place", desc: "Buy & Sell Anything, Anytime, Anywhere" },
+    { icon: "💹", title: "Stock Business", desc: "Stock Anything, Anytime, Anywhere" },
+    { icon: "🔒", title: "Service Zone", desc: "Service Anything, Anytime, Anywhere" },
   ];
 
   /** Featured Deals */
@@ -56,7 +63,7 @@ export default function HomePage() {
     { name: "Agriculture", image: "/images/categories/agriculture.jpg" },
     { name: "Electronics", image: "/images/categories/electronics.jpg" },
     { name: "Clothing", image: "/images/categories/clothing.jpg" },
-    { name: "Home & Kitchen", image: "/images/categories/home.jpg" },
+    { name: "Home", image: "/images/categories/home.jpg" },
     { name: "Machinery", image: "/images/categories/machinery.jpg" },
   ];
 
@@ -72,37 +79,53 @@ export default function HomePage() {
       {/* Navbar */}
       <nav className="bg-white shadow sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
-          <div className="flex items-center">
+          <div className="flex items-center gap-4">
             <Link href="/">
-            <Image
-              src="/images/logo/osman-logo.png"
-              alt="osman"
-              width={140}
-              height={40}
-            />
-             </Link>
+              <Image src="/images/logo/osman-logo.png" alt="osman" width={140} height={40} />
+            </Link>
+            {/* Sign In / Create Account */}
+            <div className="hidden md:flex space-x-2">
+              <Link
+                href="/signin"
+                className="text-blue-600 font-semibold hover:underline"
+              >
+                Sign In
+              </Link>
+              <Link
+                href="/create-account"
+                className="text-white bg-blue-600 px-3 py-1 rounded hover:bg-blue-700 transition"
+              >
+                Create Account
+              </Link>
+              <Link
+                href="/cart"
+                className="text-gray-700 hover:text-blue-600 font-medium"
+              >
+                🛒
+              </Link>
+            </div>
           </div>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex space-x-6 items-center">
             {menuItems.map((item, i) => (
               <div key={i} className="relative group">
-                <a
+                <Link
                   href={item.link}
                   className="text-gray-700 hover:text-blue-600 font-medium"
                 >
                   {item.name}
-                </a>
+                </Link>
                 {item.submenu && (
                   <div className="absolute left-0 top-full bg-white shadow-md rounded-md mt-2 opacity-0 group-hover:opacity-100 transition-opacity">
                     {item.submenu.map((sub, idx) => (
-                      <a
+                      <Link
                         key={idx}
                         href={sub.link}
                         className="block px-4 py-2 hover:bg-gray-100"
                       >
                         {sub.name}
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 )}
@@ -125,12 +148,7 @@ export default function HomePage() {
                 viewBox="0 0 24 24"
                 stroke="currentColor"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
               </svg>
             </button>
           </div>
@@ -141,27 +159,32 @@ export default function HomePage() {
           <div className="md:hidden bg-white px-4 pt-2 pb-4 space-y-1">
             {menuItems.map((item, i) => (
               <div key={i}>
-                <a
+                <Link
                   href={item.link}
                   className="block text-gray-700 hover:text-blue-600 font-medium"
                 >
                   {item.name}
-                </a>
+                </Link>
                 {item.submenu && (
                   <div className="pl-4">
                     {item.submenu.map((sub, idx) => (
-                      <a
+                      <Link
                         key={idx}
                         href={sub.link}
                         className="block text-gray-600 py-1"
                       >
                         {sub.name}
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 )}
               </div>
             ))}
+            <div className="flex gap-2 mt-2">
+              <Link href="/signin" className="text-blue-600 font-semibold">Sign In</Link>
+              <Link href="/create-account" className="text-white bg-blue-600 px-3 py-1 rounded">Create Account</Link>
+              <Link href="/cart" className="text-gray-700">🛒</Link>
+            </div>
           </div>
         )}
       </nav>
@@ -175,12 +198,7 @@ export default function HomePage() {
               idx === current ? "opacity-100 z-10" : "opacity-0 z-0"
             }`}
           >
-            <Image
-              src={banner}
-              alt={`Banner ${idx}`}
-              fill
-              style={{ objectFit: "cover" }}
-            />
+            <Image src={banner} alt={`Banner ${idx}`} fill style={{ objectFit: "cover" }} />
           </div>
         ))}
 
@@ -189,9 +207,7 @@ export default function HomePage() {
           {banners.map((_, idx) => (
             <button
               key={idx}
-              className={`h-2 w-2 rounded-full ${
-                idx === current ? "bg-white" : "bg-gray-400"
-              }`}
+              className={`h-2 w-2 rounded-full ${idx === current ? "bg-white" : "bg-gray-400"}`}
               onClick={() => setCurrent(idx)}
             />
           ))}
@@ -217,18 +233,18 @@ export default function HomePage() {
               and amazing growth opportunities!
             </p>
             <div className="flex gap-4">
-              <a
+              <Link
                 href="/stockman"
                 className="bg-yellow-600 text-white px-6 py-3 rounded shadow hover:bg-yellow-700 transition"
               >
                 Join as Supplier
-              </a>
-              <a
-                href="/stockman"
+              </Link>
+              <Link
+                href="/learnmore"
                 className="bg-white text-yellow-600 border border-yellow-600 px-6 py-3 rounded shadow hover:bg-yellow-100 transition"
               >
-                <li><a href="/learnmore">Lear Mmore</a></li>
-              </a>
+                Learn More
+              </Link>
             </div>
           </div>
           <div className="md:w-1/2 relative h-64 md:h-80">
@@ -240,9 +256,36 @@ export default function HomePage() {
             />
           </div>
         </div>
-
         <div className="absolute -top-10 -left-10 w-40 h-40 bg-yellow-200 rounded-full opacity-30"></div>
         <div className="absolute -bottom-10 -right-10 w-60 h-60 bg-yellow-300 rounded-full opacity-20"></div>
+      </section>
+
+      {/* Features Section */}
+      <section className="py-16 px-16 md:px-36 text-center">
+        <h2 className="text-3xl font-bold mb-10">One Platform for All Business & Service</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {features.map((f, i) => (
+            <Link
+              href={
+                f.title === "Market Place"
+                  ? "/marketplace"
+                  : f.title === "Stock Business"
+                  ? "/stock-business"
+                  : f.title === "Service Zone"
+                  ? "/service-zone"
+                  : "#"
+              }
+              key={i}
+              className="block"
+            >
+              <div className="bg-white p-8 rounded-xl shadow hover:shadow-lg transition cursor-pointer">
+                <div className="text-5xl mb-4">{f.icon}</div>
+                <h3 className="text-xl font-semibold mb-2">{f.title}</h3>
+                <p className="text-gray-600">{f.desc}</p>
+              </div>
+            </Link>
+          ))}
+        </div>
       </section>
 
       {/* Featured Deals */}
@@ -250,22 +293,14 @@ export default function HomePage() {
         <h2 className="text-2xl font-bold mb-6">Featured Deals</h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           {deals.map((deal) => (
-            <div
-              key={deal.name}
-              className="relative border rounded-lg overflow-hidden shadow hover:shadow-lg transition"
-            >
+            <div key={deal.name} className="relative border rounded-lg overflow-hidden shadow hover:shadow-lg transition">
               <div className="relative h-40">
-                <Image
-                  src={deal.image}
-                  alt={deal.name}
-                  fill
-                  style={{ objectFit: "cover" }}
-                />
+                <Image src={deal.image} alt={deal.name} fill style={{ objectFit: "cover" }} />
               </div>
               <div className="absolute inset-0 bg-black/0 hover:bg-black/30 flex items-center justify-center opacity-0 hover:opacity-100 transition">
-                <button className="bg-blue-600 text-white px-4 py-2 rounded">
+                <Link href="/addtocart" className="bg-blue-600 text-white px-4 py-2 rounded">
                   Add to Cart
-                </button>
+                </Link>
               </div>
               <div className="p-3">
                 <h3 className="font-semibold">{deal.name}</h3>
@@ -278,19 +313,11 @@ export default function HomePage() {
 
       {/* Categories */}
       <section className="max-w-7xl mx-auto py-12 px-4">
-        <h2 className="text-2xl font-bold mb-6">Shop by Category</h2>
+        <h2 className="text-2xl font-bold mb-6">OsMan Universe Our Concern</h2>
         <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
           {categories.map((cat) => (
-            <div
-              key={cat.name}
-              className="relative h-40 rounded-lg overflow-hidden shadow hover:scale-105 transition"
-            >
-              <Image
-                src={cat.image}
-                alt={cat.name}
-                fill
-                style={{ objectFit: "cover" }}
-              />
+            <div key={cat.name} className="relative h-40 rounded-lg overflow-hidden shadow hover:scale-105 transition">
+              <Image src={cat.image} alt={cat.name} fill style={{ objectFit: "cover" }} />
               <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
                 <span className="text-white font-semibold">{cat.name}</span>
               </div>
@@ -306,12 +333,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 overflow-x-auto flex space-x-8">
           {partners.map((p, i) => (
             <div key={i} className="h-16 w-32 relative flex-shrink-0">
-              <Image
-                src={p}
-                alt={`Partner ${i + 1}`}
-                fill
-                style={{ objectFit: "contain" }}
-              />
+              <Image src={p} alt={`Partner ${i + 1}`} fill style={{ objectFit: "contain" }} />
             </div>
           ))}
         </div>
@@ -329,28 +351,28 @@ export default function HomePage() {
           <div>
             <h3 className="font-bold mb-4">Customer Service</h3>
             <ul className="text-gray-500 text-sm space-y-1">
-              <li><a href="/helpcenter">Help Center</a></li>
-              <li><a href="/returns">Returns</a></li>
-              <li><a href="/shipping">Shipping</a></li>
-              <li><a href="/contact">Contact Us</a></li>
+              <li><Link href="/helpcenter">Help Center</Link></li>
+              <li><Link href="/returns">Returns</Link></li>
+              <li><Link href="/shipping">Shipping</Link></li>
+              <li><Link href="/contact">Contact Us</Link></li>
             </ul>
           </div>
           <div>
             <h3 className="font-bold mb-4">Quick Links</h3>
             <ul className="text-gray-500 text-sm space-y-1">
-              <li><a href="/">Home</a></li>
-              <li><a href="#">Categories</a></li>
-              <li><a href="#">Deals</a></li>
-              <li><a href="#">About Us</a></li>
+              <li><Link href="/">Home</Link></li>
+              <li><Link href="/marketplace">Categories</Link></li>
+              <li><Link href="/deals">Deals</Link></li>
+              <li><Link href="/about">About Us</Link></li>
             </ul>
           </div>
           <div>
             <h3 className="font-bold mb-4">Follow Us</h3>
             <ul className="text-gray-500 text-sm space-y-1">
-              <li><a href="#">Facebook</a></li>
-              <li><a href="#">Twitter</a></li>
-              <li><a href="#">Instagram</a></li>
-              <li><a href="#">LinkedIn</a></li>
+              <li><Link href="#">Facebook</Link></li>
+              <li><Link href="#">Twitter</Link></li>
+              <li><Link href="#">Instagram</Link></li>
+              <li><Link href="#">LinkedIn</Link></li>
             </ul>
           </div>
         </div>
@@ -361,6 +383,3 @@ export default function HomePage() {
     </div>
   );
 }
-
-
-
