@@ -81,7 +81,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <Link href="/marketplace" className="text-gray-700 hover:text-blue-600 text-2xl">🛒</Link>
             </div>
 
-            {/* Mobile Menu */}
+            {/* Mobile Menu Button */}
             <div className="md:hidden flex items-center gap-2">
               {/* Mobile Cart */}
               <Link href="/marketplace" className="text-gray-700 text-2xl">🛒</Link>
@@ -100,11 +100,25 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <div className="md:hidden bg-white border-t px-4 py-2">
               {menuItems.map((item, i) => (
                 <div key={i} className="py-2 border-b last:border-b-0">
-                  <Link href={item.link} className="block text-gray-700">{item.name}</Link>
+                  {/* Parent link */}
+                  <Link
+                    href={item.link}
+                    className="block text-gray-700"
+                    onClick={() => setMobileOpen(false)} // Click করলে বন্ধ হবে
+                  >
+                    {item.name}
+                  </Link>
+
+                  {/* Submenu */}
                   {item.submenu && (
                     <div className="pl-4 mt-1 space-y-1">
                       {item.submenu.map((sub, idx) => (
-                        <Link key={idx} href={sub.link} className="block text-gray-600 hover:text-blue-600">
+                        <Link
+                          key={idx}
+                          href={sub.link}
+                          className="block text-gray-600 hover:text-blue-600"
+                          onClick={() => setMobileOpen(false)} // Click করলে বন্ধ হবে
+                        >
                           {sub.name}
                         </Link>
                       ))}
@@ -150,7 +164,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <li><Link href="/start-stock">Start Stock</Link></li>
                 <li><Link href="/verified-supplier">Become a Verified Supplier</Link></li>
                 <li><Link href="/partnerships">Partnerships</Link></li>
-                 <li><Link href="/shipping">Shipping</Link></li>
+                <li><Link href="/shipping">Shipping</Link></li>
               </ul>
             </div>
 
