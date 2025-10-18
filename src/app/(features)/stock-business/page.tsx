@@ -80,7 +80,7 @@ export default function StockBusinessPage() {
             Stock Anything, Anytime, Anywhere
           </p>
           <Link
-            href="/stockman"
+            href="/create-account"
             className="mt-6 inline-block bg-white text-blue-600 px-6 py-3 rounded shadow hover:bg-gray-100 transition"
           >
             Join as Supplier
