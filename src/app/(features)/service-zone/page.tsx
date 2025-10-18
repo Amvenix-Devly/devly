@@ -8,37 +8,38 @@ export default function ServiceZonePage() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
  
-  /** Features of Service Zone */
-  const serviceFeatures = [
-    {
-      icon: "🛠️",
-      title: "Home Services",
-      desc: "Plumbing, Electrical, Cleaning & more at your doorstep.",
-    },
-    {
-      icon: "🚗",
-      title: "Vehicle Services",
-      desc: "Car repair, Bike maintenance, and professional checkups.",
-    },
-    {
-      icon: "💻",
-      title: "IT Services",
-      desc: "Website, software, and tech support services anytime.",
-    },
-    {
-      icon: "🏢",
-      title: "Business Services",
-      desc: "Consulting, Logistics, and professional solutions for businesses.",
-    },
-  ];
+/** Features of Service Zone */
+const serviceFeatures = [
+  {
+    icon: "🏠", // Interior Design & Home Decor
+    title: "Interior Design & Home Decor",
+    desc: "Design Your Dreams, Live Your Style!",
+  },
+  {
+    icon: "💻", // Web Design & IT Solutions
+    title: "Web Design & IT Solutions",
+    desc: "Build Your Online Presence, Seamlessly.",
+  },
+  {
+    icon: "🎉", // Event Planning & Management
+    title: "Event Planning & Management",
+    desc: "Turning Your Dream Event into Reality.",
+  },
+  {
+    icon: "📸", // Photography & Videography
+    title: "Photography & Videography",
+    desc: "Capturing Moments, Creating Memories.",
+  },
+];
+
 
   /** Sample Service Items */
   const services = [
-    { name: "Plumbing", price: "$25", image: "/images/services/plumbing.jpg" },
-    { name: "Electrical", price: "$30", image: "/images/services/electrical.jpg" },
-    { name: "Car Repair", price: "$50", image: "/images/services/car-repair.jpg" },
-    { name: "Cleaning", price: "$20", image: "/images/services/cleaning.jpg" },
-    { name: "IT Support", price: "$40", image: "/images/services/it-support.jpg" },
+    { name: "WebApps", image: "/images/services/webApps.jpg" },
+    { name: "Interior design", image: "/images/services/home-design.jpg" },
+    { name: "Wedding photography", image: "/images/services/wedding-photography.jpg" },
+    { name: "Mobile Apps", image: "/images/services/mobile-app.jpg" },
+    { name: "E-commerce site", image: "/images/services/ecommerce.jpg" },
   ];
 
   /** Partners */
@@ -61,7 +62,7 @@ export default function ServiceZonePage() {
             Service Anything, Anytime, Anywhere
           </p>
           <Link
-            href="/serviceprovider"
+            href="/service-provider-registration"
             className="mt-6 inline-block bg-white text-green-600 px-6 py-3 rounded shadow hover:bg-gray-100 transition"
           >
             Join as Service Provider
@@ -69,19 +70,31 @@ export default function ServiceZonePage() {
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="py-16 px-4 md:px-36 text-center">
-        <h2 className="text-3xl font-bold mb-10">Our Service Offerings</h2>
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {serviceFeatures.map((f, i) => (
-            <div key={i} className="bg-white p-8 rounded-xl shadow hover:shadow-lg transition">
-              <div className="text-5xl mb-4">{f.icon}</div>
-              <h3 className="text-xl font-semibold mb-2">{f.title}</h3>
-              <p className="text-gray-600">{f.desc}</p>
-            </div>
-          ))}
-        </div>
-      </section>
+{/* Features Section */}
+<section className="py-16 px-4 md:px-36 text-center">
+  <h2 className="text-3xl font-bold mb-10">Our Service Offerings</h2>
+  <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+    {serviceFeatures.map((f, i) => {
+      // সঠিক লিঙ্ক ঠিক করা
+      let link = "#";
+      if (f.title === "Interior Design & Home Decor") link = "/interior";
+      else if (f.title === "Web Design & IT Solutions") link = "/it-service";
+      else if (f.title === "Event Planning & Management") link = "/event-management";
+      else if (f.title === "Photography & Videography") link = "/photography";
+
+      return (
+        <Link key={i} href={link} className="block">
+          <div className="bg-white p-8 rounded-xl shadow hover:shadow-lg transition cursor-pointer">
+            <div className="text-5xl mb-4">{f.icon}</div>
+            <h3 className="text-xl font-semibold mb-2">{f.title}</h3>
+            <p className="text-gray-600">{f.desc}</p>
+          </div>
+        </Link>
+      );
+    })}
+  </div>
+</section>
+
 
       {/* Sample Service Items */}
       <section className="max-w-7xl mx-auto py-12 px-4">
